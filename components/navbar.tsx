@@ -22,7 +22,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#40030b] backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Name (No Logo) */}
@@ -38,10 +38,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-foreground/80 hover:text-primary transition-all relative group"
+                className="text-sm text-foreground/80 hover:text-[#FFFFFF] transition-all relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFFFFF] transition-all group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -50,7 +50,7 @@ export function Navbar() {
           <div className="hidden md:block">
             <Button
               onClick={handleLineContact}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 rounded-xl transition-all hover:scale-105"
+              className="bg-[#FFFFFF] hover:bg-[#D8D8D8] text-[#000000] font-semibold px-6 py-5 rounded-xl transition-all hover:scale-105"
             >
               <MessageCircle className="mr-2 w-5 h-5" />
               สอบถามเพิ่มเติม
