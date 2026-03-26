@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const projects = [
   {
-    title: "ระบบจัดการร้านอาหาร",
+    title: "ระบบจัดการหลังบ้าน",
     category: "POS System",
-    description: "ระบบ POS พร้อมจัดการสต็อก และรายงานยอดขาย",
+    description: "ระบบจัดการหลังบ้าน และรายงานยอดที่ได้",
     tech: ["React", "Node.js", "PostgreSQL"],
   },
   {
@@ -32,11 +32,15 @@ const projects = [
 
 export function ShowcaseSection() {
   return (
-    <section id="products" className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="relative py-24 bg-[#8c8b8b] overflow-hidden">
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(64,3,11,0.08)_2px,transparent_1px),linear-gradient(to_bottom,rgba(64,3,11,0.08)_2px,transparent_1px)] bg-[size:64px_64px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+          <span className="h-16 px-5 text-2xl font-bold rounded-2xl bg-[#ffbf00] 
+          text-[#40030b] font-medium tracking-wider uppercase">
             Software Showcase
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 text-balance">
@@ -52,7 +56,7 @@ export function ShowcaseSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="bg-background border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden"
+              className="bg-[#40030b] border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden"
             >
               <CardContent className="p-0">
                 {/* Project Preview */}
@@ -79,14 +83,14 @@ export function ShowcaseSection() {
                   <h3 className="text-xl font-semibold text-foreground mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-[#ffbf00]/60 text-sm mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="text-xs text-muted-foreground bg-secondary px-2 py-1 rounded"
+                        className="text-xs text-white bg-primary/20 px-2 py-1 rounded"
                       >
                         {tech}
                       </span>
