@@ -27,7 +27,7 @@ export function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl sm:text-2xl text-[#40030b]/70 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+        <p className="text-xl sm:text-2xl text-[#ffde00]/70 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
           ยกระดับธุรกิจของคุณด้วยซอฟต์แวร์ระดับสากล 
           <br className="hidden sm:block" />
           เสถียร ใช้งานง่าย และรองรับทุกความต้องการของงานคุณ
@@ -46,9 +46,9 @@ export function HeroSection() {
 
           <Button 
             size="lg" 
-            className="h-16 px-10 text-xl font-bold rounded-2xl bg-[#000000] text-[#FFFFFF] hover:bg-[#262626] transition-all hover:scale-105 shadow-xl shadow-[#40030b]/20"
+            className="h-16 px-10 text-xl font-bold rounded-2xl bg-[#000000] text-[#FFFFFF] hover:bg-[#131313] transition-all hover:scale-105 shadow-xl shadow-[#40030b]/20"
           >
-            <Code2 className="mr-2 w-6 h-6 text-[#FFFFFF]" />
+            <Code2 className="mr-2 w-6 h-6 text-[#ffde00]" />
             ดูตัวอย่างระบบ
           </Button>
         </div>
