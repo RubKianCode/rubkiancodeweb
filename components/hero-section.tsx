@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[#919191] from-primary/20 via-background to-background" />
+      <div className="absolute inset-0 bg-[#8c8b8b] from-primary/20 via-background to-background" />
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(64,3,11,0.08)_2px,transparent_1px),linear-gradient(to_bottom,rgba(64,3,11,0.08)_2px,transparent_1px)] bg-[size:64px_64px]" />
@@ -23,7 +23,7 @@ export function HeroSection() {
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-foreground mb-8 leading-[1.1] tracking-tight">
           ระบบซอฟต์แวร์โฟโต้บูธ
           <br />
-          <span className="text-[#FFFFFF] italic">อันดับ 1 ในไทย</span>
+          <span className="text-[#ffde00] italic">อันดับ 1 ในไทย</span>
         </h1>
 
         {/* Subtitle */}
@@ -73,7 +73,7 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-[#40030b]/30 rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-[#ffbf00]/80 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-1.5 bg-[#9e2333] rounded-full animate-pulse" />
         </div>
       </div>

@@ -44,17 +44,19 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-card">
+    <section id="services" className="py-24 bg-[#555555]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+          <span className="h-16 px-5 text-2xl font-bold rounded-2xl bg-[#ffbf00] 
+          text-[#40030b] font-medium tracking-wider uppercase">
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] 
+          mt-4 mb-6 text-balance">
             บริการของเรา
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
+          <p className="text-[#FFFFFF]/60 text-lg max-w-2xl mx-auto text-pretty">
             เราให้บริการด้านซอฟต์แวร์อย่างครบวงจร ตั้งแต่การให้คำปรึกษา ออกแบบ พัฒนา จนถึงดูแลหลังการขาย
           </p>
         </div>
@@ -64,22 +66,22 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-background border-border hover:border-primary/50 transition-all duration-300 group"
+              className="bg-[#40030b] border-white hover:border-[#ffbf00]/100 transition-all duration-300 group"
             >
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm">
+                <p className="text-[#ffbf00]/60 mb-4 text-sm">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                    <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted[#ffbf00]">
+                      <CheckCircle2 className="w-4 h-4 text-[#ffbf00]" />
                       {feature}
                     </li>
                   ))}
