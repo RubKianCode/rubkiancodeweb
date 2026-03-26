@@ -54,7 +54,7 @@ export function HeroSection() {
         </div>
 
         {/* Stats Section with updated look */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto py-10 border-t border-[#9e2333]/100">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto py-10 border-t border-[#9e2333]/0">
           {[
             { number: "500+", label: "อีเวนต์ที่ไว้วางใจ" },
             { number: "100%", label: "การันตีความเสถียร" },

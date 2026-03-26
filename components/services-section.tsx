@@ -44,7 +44,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-[#555555]">
+    <section id="services" className="py-24 bg-[#7a7a7a]/75">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -52,7 +52,7 @@ export function ServicesSection() {
           text-[#40030b] font-medium tracking-wider uppercase">
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] 
+          <h2 className="text-xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] 
           mt-4 mb-6 text-balance">
             บริการของเรา
           </h2>
