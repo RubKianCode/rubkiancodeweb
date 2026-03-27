@@ -1,6 +1,7 @@
 "use client"
 
-import { ArrowRight, Code2, Sparkles, Camera, Zap, Shield, Clock } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Code2, Camera, Zap, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
@@ -8,7 +9,25 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
 
       {/* Base Background */}
-      <div className="absolute inset-0 bg-[#8c8b8b]" />
+      <div className="absolute inset-0 z-0" />
+      <Image
+        src="/bg-paper.png"
+        alt="paper background"
+        fill
+        className="object-cover opacity-90"
+        priority />
+
+      <div className="absolute inset-0 bg-[#f3f84a]/20 backdrop-blur-[1px]" />
+
+      {/* Noise Overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none opacity-[0.2]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' 
+          xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence 
+          type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
 
       {/* Glow Orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
@@ -18,9 +37,6 @@ export function HeroSection() {
 
       {/* Top Beam */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ffde00]/40 to-transparent" />
-
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(64,3,11,0.08)_2px,transparent_1px),linear-gradient(to_bottom,rgba(64,3,11,0.08)_2px,transparent_1px)] bg-[size:64px_64px]" />
 
       {/* Corner Accent Lines */}
       <div className="absolute top-24 left-8 w-16 h-16 border-l-2 border-t-2 border-[#ffde00]/40 rounded-tl-sm" />
