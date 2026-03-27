@@ -36,21 +36,21 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffde00] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffde00]"></span>
           </span>
-          <Camera className="w-4 h-4" />
-          <span className="text-sm font-bold uppercase tracking-[0.15em]">Professional Photobooth Solutions</span>
+          <Camera className="w-4 h-4 text-[#ffde00]" />
+          <span className="text-sm font-bold text-[#ffde00] uppercase tracking-[0.15em]">Professional Photobooth Solutions</span>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-tight">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.1] tracking-tight">
           ระบบซอฟต์แวร์โฟโต้บูธ
           <br />
-          <span className="italic">
+          <span className="text-[#ffde00] italic" style={{ textShadow: '0 0 40px rgba(255,222,0,0.4)' }}>
             อันดับ 1 ในไทย
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-14 leading-relaxed font-medium">
+        <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-14 leading-relaxed font-medium">
           ยกระดับธุรกิจของคุณด้วยซอฟต์แวร์ระดับสากล
           <br className="hidden sm:block" />
           เสถียร ใช้งานง่าย และรองรับทุกความต้องการของงานคุณ
@@ -60,7 +60,7 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
           <Button
             size="lg"
-            className="bg-[#40030b] hover:bg-[#5a0410] h-16 px-10 text-xl font-bold rounded-2xl group transition-all duration-300 hover:scale-105 active:scale-95 border border-[#ffde00]/20"
+            className="bg-[#40030b] text-white hover:bg-[#5a0410] h-16 px-10 text-xl font-bold rounded-2xl group transition-all duration-300 hover:scale-105 active:scale-95 border border-[#ffde00]/20"
             style={{ boxShadow: '0 0 30px rgba(64,3,11,0.5), 0 0 60px rgba(64,3,11,0.2)' }}
             onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
           >
@@ -70,9 +70,9 @@ export function HeroSection() {
 
           <Button
             size="lg"
-            className="h-16 px-10 text-xl font-bold rounded-2xl bg-black/40 hover:bg-black/60 border border-white/20 hover:border-[#ffde00]/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+            className="h-16 px-10 text-xl font-bold rounded-2xl bg-black/40 text-white hover:bg-black/60 border border-white/20 hover:border-[#ffde00]/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
           >
-            <Code2 className="mr-2 w-6 h-6" />
+            <Code2 className="mr-2 w-6 h-6 text-[#ffde00]" />
             ดูตัวอย่างระบบ
           </Button>
         </div>
@@ -88,11 +88,12 @@ export function HeroSection() {
             <div key={index}
               className="relative text-center p-4 rounded-xl border border-[#40030b]/40 bg-black/20 backdrop-blur-sm hover:border-[#ffde00]/30 transition-all duration-300 group"
             >
-              <stat.icon className="w-5 h-5 mx-auto mb-2 transition-colors" />
-              <div className="text-3xl sm:text-4xl font-black mb-1">
+              <stat.icon className="w-5 h-5 text-[#ffde00]/40 mx-auto mb-2 group-hover:text-[#ffde00]/70 transition-colors" />
+              <div className="text-3xl sm:text-4xl font-black text-[#ffde00] mb-1"
+                style={{ textShadow: '0 0 20px rgba(255,222,0,0.3)' }}>
                 {stat.number}
               </div>
-              <div className="text-xs font-bold uppercase tracking-widest">{stat.label}</div>
+              <div className="text-xs font-bold text-white/50 uppercase tracking-widest">{stat.label}</div>
             </div>
           ))}
         </div>

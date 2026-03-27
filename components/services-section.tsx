@@ -62,10 +62,10 @@ export function ServicesSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#ffde00] animate-pulse" />
             <span className="text-sm font-bold text-[#ffde00] tracking-[0.15em] uppercase font-mono">Our Services</span>
           </div>
-          <h2 className="text-5xl sm:text-6xl font-black mb-6 tracking-tight">
+          <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 tracking-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(255,255,255,0.7), 0 0 80px rgba(255,222,0,0.5)' }}>
             บริการของเรา
           </h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
             เราให้บริการด้านซอฟต์แวร์อย่างครบวงจร ตั้งแต่การให้คำปรึกษา ออกแบบ พัฒนา จนถึงดูแลหลังการขาย
           </p>
         </div>
@@ -89,23 +89,23 @@ export function ServicesSection() {
                 <service.icon className="w-6 h-6 text-[#ffde00]" />
               </div>
 
-              <h3 className="text-xl font-bold mb-2 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#ffde00] transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="mb-5 text-sm leading-relaxed transition-colors">
+              <p className="text-white/40 mb-5 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
                 {service.description}
               </p>
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                  <li key={featureIndex} className="flex items-center gap-2 text-sm text-white/50">
+                    <CheckCircle2 className="w-4 h-4 text-[#ffde00]/60 flex-shrink-0" />
                     <span className="font-mono">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Bottom index number */}
-              <div className="absolute bottom-4 right-5 text-5xl font-black transition-colors select-none">
+              <div className="absolute bottom-4 right-5 text-5xl font-black text-white/10 group-hover:text-[#ffde00]/20 transition-colors select-none">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>

@@ -41,13 +41,13 @@ export function PhotoboothSection() {
               <span className="text-sm font-bold text-[#ffde00] tracking-[0.15em] uppercase font-mono">Korean Style Photobooth</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight">
-              ให้เช่า <span>Photobooth</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+              ให้เช่า <span className="text-[#ffde00]" style={{ textShadow: '0 0 30px rgba(255,222,0,0.4)' }}>Photobooth</span>
               <br />
-              <span>สไตล์เกาหลี</span>
+              <span className="text-white/80">สไตล์เกาหลี</span>
             </h2>
 
-            <p className="text-lg mb-10 leading-relaxed max-w-lg">
+            <p className="text-lg text-white/50 mb-10 leading-relaxed max-w-lg">
               บริการให้เช่าตู้ถ่ายรูปสไตล์เกาหลี พร้อมโปรแกรมที่พัฒนาเอง
               เหมาะสำหรับงาน Event, งานแต่งงาน, งานเปิดตัวสินค้า และอื่นๆ
             </p>
@@ -57,9 +57,9 @@ export function PhotoboothSection() {
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 group">
                   <div className="w-5 h-5 rounded-full bg-[#ffde00]/10 border border-[#ffde00]/30 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-3 h-3" />
+                    <CheckCircle2 className="w-3 h-3 text-[#ffde00]" />
                   </div>
-                  <span className="text-sm font-medium transition-colors">{feature}</span>
+                  <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -67,7 +67,7 @@ export function PhotoboothSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-[#ffde00] hover:bg-[#ffde00]/90 font-black h-14 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-105"
+                className="bg-[#ffde00] text-[#40030b] hover:bg-[#ffde00]/90 font-black h-14 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-105"
                 style={{ boxShadow: '0 0 30px rgba(255,222,0,0.3)' }}
                 onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
               >
@@ -76,9 +76,9 @@ export function PhotoboothSection() {
               </Button>
               <Button
                 size="lg"
-                className="h-14 px-8 text-lg rounded-xl bg-white/5 border border-white/20 hover:border-[#ffde00]/40 hover:bg-white/10 transition-all duration-300 font-semibold backdrop-blur-sm"
+                className="h-14 px-8 text-lg rounded-xl bg-white/5 text-white border border-white/20 hover:border-[#ffde00]/40 hover:bg-white/10 transition-all duration-300 font-semibold backdrop-blur-sm"
               >
-                <Sparkles className="mr-2 w-5 h-5" />
+                <Sparkles className="mr-2 w-5 h-5 text-[#ffde00]" />
                 ดูตัวอย่างรูป
               </Button>
             </div>
@@ -103,7 +103,7 @@ export function PhotoboothSection() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
                 </div>
-                <span className="text-xs font-mono">photobooth.exe</span>
+                <span className="text-[#ffde00]/60 text-xs font-mono">photobooth.exe</span>
               </div>
 
               {/* Photo Grid */}
@@ -119,9 +119,9 @@ export function PhotoboothSection() {
 
               {/* Bottom Strip */}
               <div className="border-t border-[#ffde00]/20 p-3 flex items-center justify-center gap-2 bg-[#ffde00]/5">
-                <Star className="w-3 h-3" />
-                <span className="text-xs font-mono tracking-wider">PHOTOBOOTH SYSTEM</span>
-                <Star className="w-3 h-3" />
+                <Star className="w-3 h-3 text-[#ffde00]/60" />
+                <span className="text-xs font-mono text-[#ffde00]/60 tracking-wider">PHOTOBOOTH SYSTEM</span>
+                <Star className="w-3 h-3 text-[#ffde00]/60" />
               </div>
             </div>
 
