@@ -26,11 +26,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Brand Name */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-[#ffde00] font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">[</span>
-            <span className="font-bold text-xl tracking-tight text-white sm:block group-hover:text-[#ffde00] transition-colors duration-300">
+            <span className="font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">[</span>
+            <span className="font-bold text-xl tracking-tight sm:block transition-colors duration-300">
               ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย
             </span>
-            <span className="text-[#ffde00] font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">]</span>
+            <span className="font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">]</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -39,7 +39,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/70 hover:text-[#ffde00] transition-all relative group py-1"
+                className="text-sm hover:text-[#ffde00] transition-all relative group py-1"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gradient-to-r from-[#ffde00] to-transparent transition-all duration-300 group-hover:w-full" />
@@ -51,7 +51,7 @@ export function Navbar() {
           <div className="hidden md:block">
             <Button
               onClick={handleLineContact}
-              className="bg-[#ff9100] hover:bg-[#ffde00] text-[#40030b] font-bold px-6 py-5 rounded-xl transition-all duration-300 hover:scale-105"
+              className="bg-[#ff9100] hover:bg-[#ffde00] font-bold px-6 py-5 rounded-xl transition-all duration-300 hover:scale-105"
               style={{ boxShadow: '0 0 20px rgba(255,145,0,0.3)' }}
             >
               <MessageCircle className="mr-2 w-5 h-5" />
@@ -78,16 +78,16 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-xl font-semibold text-white/80 hover:text-[#ffde00] transition-colors"
+                className="block text-xl font-semibold hover:text-[#ffde00] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                <span className="text-[#ffde00]/50 font-mono mr-2">&gt;</span>
+                <span className="font-mono mr-2">&gt;</span>
                 {link.label}
               </Link>
             ))}
             <Button
               onClick={handleLineContact}
-              className="w-full h-14 text-lg font-bold bg-[#ff9100] hover:bg-[#ffde00] text-[#40030b] rounded-2xl"
+              className="w-full h-14 text-lg font-bold bg-[#ff9100] hover:bg-[#ffde00] rounded-2xl"
             >
               <MessageCircle className="mr-2 w-6 h-6" />
               สอบถามเพิ่มเติม

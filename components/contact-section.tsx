@@ -68,15 +68,15 @@ export function ContactSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffde00] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffde00]"></span>
             </span>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase font-mono" style={{ color: 'rgba(255,222,0,0.8)' }}>Get In Touch</span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase font-mono">Get In Touch</span>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-5 leading-tight">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-5 leading-tight">
             พร้อมให้คุณ
             <br />
-            <span style={{ color: '#ffde00', textShadow: '0 0 60px rgba(255,222,0,0.35)' }}>ติดต่อเราได้เลย</span>
+            <span>ติดต่อเราได้เลย</span>
           </h2>
-          <p className="text-lg max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-lg max-w-xl mx-auto leading-relaxed">
             ทีมงานผู้เชี่ยวชาญพร้อมรับฟังและให้คำแนะนำอย่างตรงจุด
             ไม่ว่าจะเป็นการเช่า ซื้อ หรือสอบถามรายละเอียด
           </p>
@@ -110,9 +110,9 @@ export function ContactSection() {
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                  <div className="text-xs font-mono mb-0.5" style={{ color: 'rgba(255,222,0,0.5)' }}>{item.label}</div>
-                  <div className="text-sm font-bold text-white truncate">{item.value}</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.3)' }}>{item.sub}</div>
+                  <div className="text-xs font-mono mb-0.5">{item.label}</div>
+                  <div className="text-sm font-bold truncate">{item.value}</div>
+                  <div className="text-xs mt-0.5">{item.sub}</div>
                 </div>
 
                 <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" style={{ color: '#ffde00' }} />
@@ -127,9 +127,9 @@ export function ContactSection() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-mono mb-1" style={{ color: 'rgba(255,222,0,0.6)' }}>// ช่องทางแนะนำ</div>
-                  <div className="text-white font-black text-lg">คุยผ่าน LINE เลย!</div>
-                  <div className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>เร็ว ง่าย ได้คำตอบทันที</div>
+                  <div className="text-xs font-mono mb-1">// ช่องทางแนะนำ</div>
+                  <div className="font-black text-lg">คุยผ่าน LINE เลย!</div>
+                  <div className="text-sm mt-1">เร็ว ง่าย ได้คำตอบทันที</div>
                 </div>
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
                   style={{ background: '#ffde00', boxShadow: '0 0 25px rgba(255,222,0,0.4)' }}>
@@ -163,8 +163,8 @@ export function ContactSection() {
 
               {/* Form Body */}
               <div className="p-8">
-                <h3 className="text-2xl font-black text-white mb-2">ส่งข้อความถึงเรา</h3>
-                <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.35)' }}>กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด</p>
+                <h3 className="text-2xl font-black mb-2">ส่งข้อความถึงเรา</h3>
+                <p className="text-sm mb-8">กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด</p>
 
                 <form className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -173,13 +173,13 @@ export function ContactSection() {
                       { label: "อีเมล", placeholder: "email@example.com", type: "email" },
                     ].map((field, i) => (
                       <div key={i} className="space-y-2">
-                        <label className="block text-xs font-bold tracking-wider uppercase" style={{ color: 'rgba(255,222,0,0.5)' }}>
+                        <label className="block text-xs font-bold tracking-wider uppercase">
                           {field.label}
                         </label>
                         <input
                           type={field.type}
                           placeholder={field.placeholder}
-                          className="w-full rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-200"
+                          className="w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-200"
                           style={{
                             background: 'rgba(255,255,255,0.05)',
                             border: '1px solid rgba(255,255,255,0.1)',
@@ -193,10 +193,10 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-bold tracking-wider uppercase" style={{ color: 'rgba(255,222,0,0.5)' }}>หัวข้อ</label>
+                    <label className="block text-xs font-bold tracking-wider uppercase">หัวข้อ</label>
                     <input
                       placeholder="เช่น สอบถามราคาเช่าระบบ Photobooth"
-                      className="w-full rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-200"
+                      className="w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-200"
                       style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', caretColor: '#ffde00' }}
                       onFocus={e => { e.currentTarget.style.borderColor = 'rgba(255,222,0,0.5)'; e.currentTarget.style.background = 'rgba(255,255,255,0.07)' }}
                       onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
@@ -204,11 +204,11 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-bold tracking-wider uppercase" style={{ color: 'rgba(255,222,0,0.5)' }}>รายละเอียด</label>
+                    <label className="block text-xs font-bold tracking-wider uppercase">รายละเอียด</label>
                     <textarea
                       placeholder="อธิบายความต้องการของคุณ..."
                       rows={5}
-                      className="w-full rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-200 resize-none"
+                      className="w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-200 resize-none"
                       style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', caretColor: '#ffde00' }}
                       onFocus={e => { e.currentTarget.style.borderColor = 'rgba(255,222,0,0.5)'; e.currentTarget.style.background = 'rgba(255,255,255,0.07)' }}
                       onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}

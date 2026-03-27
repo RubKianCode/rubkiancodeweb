@@ -34,11 +34,11 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-              <span className="text-[#ffde00]/60 font-mono text-lg group-hover:text-[#ffde00] transition-colors">[</span>
-              <span className="font-black text-lg text-white group-hover:text-[#ffde00] transition-colors">โฟโต้บูธ ประเทศไทย</span>
-              <span className="text-[#ffde00]/60 font-mono text-lg group-hover:text-[#ffde00] transition-colors">]</span>
+              <span className="font-mono text-lg transition-colors">[</span>
+              <span className="font-black text-lg transition-colors">โฟโต้บูธ ประเทศไทย</span>
+              <span className="font-mono text-lg transition-colors">]</span>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-sm leading-relaxed mb-5 max-w-xs">
               ผู้เชี่ยวชาญด้านระบบซอฟต์แวร์โฟโต้บูธ ให้บริการครบวงจร ทั้งผลิต ให้เช่า และให้คำปรึกษา
             </p>
             {/* Status Badge */}
@@ -47,7 +47,7 @@ export function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
               </span>
-              <span className="text-xs font-mono text-white/50">System Online — 24/7</span>
+              <span className="text-xs font-mono">System Online — 24/7</span>
             </div>
           </div>
 
@@ -59,9 +59,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/40 hover:text-[#ffde00] transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-sm hover:text-[#ffde00] transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="text-[#ffde00]/0 group-hover:text-[#ffde00]/50 font-mono transition-all duration-200">&gt;</span>
+                    <span className="font-mono transition-all duration-200">&gt;</span>
                     {link.label}
                   </Link>
                 </li>
@@ -77,9 +77,9 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="flex items-center gap-3 text-sm text-white/40 hover:text-[#ffde00] transition-colors duration-200 group"
+                    className="flex items-center gap-3 text-sm hover:text-[#ffde00] transition-colors duration-200 group"
                   >
-                    <item.icon className="w-4 h-4 text-[#ffde00]/30 group-hover:text-[#ffde00]/70 flex-shrink-0 transition-colors" />
+                    <item.icon className="w-4 h-4 flex-shrink-0 transition-colors" />
                     <span className="font-mono">{item.label}</span>
                   </a>
                 </li>
@@ -90,14 +90,14 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-mono text-white/25">
+          <p className="text-xs font-mono">
             © 2026 ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย — All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-xs font-mono text-white/25 hover:text-[#ffde00]/60 transition-colors">
+            <Link href="#" className="text-xs font-mono hover:text-[#ffde00]/60 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-xs font-mono text-white/25 hover:text-[#ffde00]/60 transition-colors">
+            <Link href="#" className="text-xs font-mono hover:text-[#ffde00]/60 transition-colors">
               Terms of Service
             </Link>
           </div>
