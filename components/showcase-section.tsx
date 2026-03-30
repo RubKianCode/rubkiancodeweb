@@ -1,6 +1,8 @@
 "use client"
 
-import { ExternalLink, Code2 } from "lucide-react"
+import { ExternalLink, Monitor } from "lucide-react"
+import Image from "next/image"
+import { RetroNoise } from "@/components/retro-noise"
 
 const projects = [
   {
@@ -8,51 +10,82 @@ const projects = [
     category: "POS System",
     description: "ระบบจัดการหลังบ้าน และรายงานยอดที่ได้",
     tech: ["React", "Node.js", "PostgreSQL"],
+    ch: "CH.1",
   },
   {
     title: "แอปจองคิว",
     category: "Mobile App",
     description: "แอปพลิเคชันจองคิวสำหรับคลินิกและร้านค้า",
     tech: ["Flutter", "Firebase", "Google Maps"],
+    ch: "CH.2",
   },
   {
     title: "E-commerce Platform",
     category: "Web Application",
     description: "แพลตฟอร์มขายสินค้าออนไลน์ครบวงจร",
     tech: ["Next.js", "Stripe", "AWS"],
+    ch: "CH.3",
   },
   {
     title: "HR Management System",
     category: "Enterprise",
     description: "ระบบบริหารทรัพยากรบุคคลสำหรับองค์กร",
     tech: ["Vue.js", "Laravel", "MySQL"],
+    ch: "CH.4",
   },
 ]
 
 export function ShowcaseSection() {
   return (
-    <section id="products" className="relative py-24 bg-[#8c8b8b] overflow-hidden">
-      {/* Top Beam */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ffde00]/30 to-transparent" />
+    <section id="products" className="relative py-24 overflow-hidden retro-scanlines">
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(64,3,11,0.08)_2px,transparent_1px),linear-gradient(to_bottom,rgba(64,3,11,0.08)_2px,transparent_1px)] bg-[size:64px_64px]" />
+      {/* Base Paper Background */}
+      <Image
+        src="/bg-paper.png"
+        alt="paper background"
+        fill
+        className="object-cover"
+        priority
+        style={{ zIndex: 0 }}
+      />
 
-      {/* Glow Orb */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 blur-[100px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #40030b, transparent)' }} />
+      {/* Overlays */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.30)' }} />
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.45)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* TV Noise */}
+      <RetroNoise opacity={0.045} className="z-[2]" blendMode="overlay" />
+
+      {/* Vignette */}
+      <div className="absolute inset-0 z-[3] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(20,8,0,0.45) 100%)' }} />
+
+      {/* Top border */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+
+      <div className="relative z-[5] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#40030b]/50 border border-[#ffde00]/30 rounded-full px-5 py-2 mb-6 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ffde00] animate-pulse" />
-            <span className="text-sm font-bold text-[#ffde00] tracking-[0.15em] uppercase font-mono">Software Showcase</span>
+          <div
+            className="inline-flex items-center gap-2 mb-6 px-5 py-2"
+            style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00' }}
+          >
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">Software Showcase</span>
           </div>
-          <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 tracking-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(255,255,255,0.7), 0 0 80px rgba(255,222,0,0.5)' }}>
+
+          <h2
+            className="text-5xl sm:text-6xl font-black uppercase mb-6"
+            style={{
+              color: '#1a0e00',
+              textShadow: '4px 4px 0px #7a5010',
+              fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+            }}
+          >
             ผลงานของเรา
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+          <p className="text-[#1a0e00] font-bold text-lg max-w-2xl mx-auto">
             ตัวอย่างโปรเจกต์ที่เราได้พัฒนาให้กับลูกค้า
           </p>
         </div>
@@ -62,55 +95,92 @@ export function ShowcaseSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl border border-white/10 bg-[#40030b]/60 backdrop-blur-sm overflow-hidden hover:border-[#ffde00]/30 transition-all duration-500"
-              style={{ boxShadow: '0 4px 30px rgba(0,0,0,0.2)' }}
+              className="group relative transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] cursor-default"
+              style={{
+                background: 'rgba(26,14,0,0.88)',
+                border: '3px solid #f3f84a',
+                boxShadow: '5px 5px 0px #7a5010',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '8px 8px 0px #7a5010' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #7a5010' }}
             >
-              {/* Top accent line */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ffde00]/0 to-transparent group-hover:via-[#ffde00]/50 transition-all duration-500" />
+              {/* TV screen preview area */}
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  aspectRatio: '16/9',
+                  background: '#93c8cf',
+                  borderBottom: '3px solid #f3f84a',
+                }}
+              >
+                {/* CRT scanlines in screen */}
+                <div className="absolute inset-0 z-10 pointer-events-none"
+                  style={{
+                    background: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px)',
+                  }} />
 
-              {/* Project Preview Area */}
-              <div className="aspect-video relative overflow-hidden bg-black/40">
-                {/* Scanline Effect */}
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.05)_2px,rgba(0,0,0,0.05)_4px)] pointer-events-none z-10" />
+                {/* Channel label */}
+                <div className="absolute top-3 left-3 z-20 px-2 py-0.5 font-mono font-black text-xs"
+                  style={{ background: '#f3f84a', color: '#1a0e00', border: '2px solid #1a0e00' }}>
+                  {project.ch}
+                </div>
 
-                {/* Grid inside preview */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]" />
-
-                {/* Center "screen" */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-3/4 h-3/4 bg-black/30 rounded-lg border border-[#ffde00]/10 backdrop-blur-sm flex items-center justify-center group-hover:border-[#ffde00]/30 transition-all duration-300">
-                    <Code2 className="w-10 h-10 text-[#ffde00]/30 group-hover:text-[#ffde00]/60 transition-colors duration-300" />
+                {/* Center icon */}
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div
+                    className="w-20 h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    style={{ background: 'rgba(26,14,0,0.3)', border: '3px solid rgba(26,14,0,0.5)' }}
+                  >
+                    <Monitor className="w-10 h-10" style={{ color: '#1a0e00', opacity: 0.5 }} />
                   </div>
                 </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#40030b]/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex items-center gap-2 text-[#ffde00] font-bold">
+                {/* Hover overlay */}
+                <div
+                  className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'rgba(243,248,74,0.85)' }}
+                >
+                  <div className="flex items-center gap-2 font-black uppercase text-[#1a0e00]">
                     <ExternalLink className="w-6 h-6" />
                     <span>ดูรายละเอียด</span>
                   </div>
                 </div>
               </div>
 
-              {/* Project Info */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold text-[#ffde00]/80 bg-[#ffde00]/10 border border-[#ffde00]/20 px-3 py-1 rounded-full tracking-wider uppercase">
+              {/* Project info */}
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="text-xs font-black uppercase tracking-wider px-3 py-1"
+                    style={{ background: '#93c8cf', color: '#1a0e00', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00' }}
+                  >
                     {project.category}
                   </span>
-                  <span className="text-xs font-mono text-white/30">#{String(index + 1).padStart(2, '0')}</span>
+                  <span className="font-mono font-bold text-xs" style={{ color: 'rgba(243,248,74,0.5)' }}>
+                    #{String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#ffde00] transition-colors duration-300">
+
+                <h3
+                  className="text-xl font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
+                  style={{ color: '#ffffff', textShadow: '1px 1px 0 rgba(0,0,0,0.5)' }}
+                >
                   {project.title}
                 </h3>
-                <p className="text-white/40 text-sm mb-4 leading-relaxed">
+                <p className="text-white/60 text-sm mb-4 leading-relaxed font-medium">
                   {project.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
+                  {project.tech.map((tech, ti) => (
                     <span
-                      key={techIndex}
-                      className="text-xs font-mono text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded hover:border-[#ffde00]/30 hover:text-[#ffde00]/70 transition-all duration-200"
+                      key={ti}
+                      className="text-xs font-mono font-bold px-2.5 py-1"
+                      style={{
+                        border: '2px solid #f3f84a',
+                        color: '#f3f84a',
+                        background: 'rgba(243,248,74,0.08)',
+                      }}
                     >
                       {tech}
                     </span>
@@ -122,8 +192,8 @@ export function ShowcaseSection() {
         </div>
       </div>
 
-      {/* Bottom Beam */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ffde00]/20 to-transparent" />
+      {/* Bottom border */}
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
     </section>
   )
 }

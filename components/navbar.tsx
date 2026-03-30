@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, MessageCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#services", label: "รับผลิตซอฟต์แวร์" },
@@ -16,82 +15,138 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleLineContact = () => {
-    window.open('https://line.me/ti/p/@rubkiancode', '_blank');
-    setIsOpen(false);
-  };
+    window.open('https://line.me/ti/p/@rubkiancode', '_blank')
+    setIsOpen(false)
+  }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#40030b]/95 backdrop-blur-xl border-b border-[#ffde00]/10" style={{ boxShadow: '0 1px 30px rgba(255,222,0,0.08)' }}>
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: '#93c8cf',
+        borderBottom: '3px solid #f3f84a',
+        boxShadow: '0 3px 0px #7a5010',
+      }}
+    >
+      {/* Top scanline accent */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 pointer-events-none"
+        style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent)' }} />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand Name */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-[#ffde00] font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">[</span>
-            <span className="font-bold text-xl tracking-tight text-white sm:block group-hover:text-[#ffde00] transition-colors duration-300">
-              ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย
-            </span>
-            <span className="text-[#ffde00] font-mono text-lg font-bold opacity-70 group-hover:opacity-100 transition-opacity">]</span>
-          </Link>
+      <div className="flex items-center justify-between h-20">
+
+          {/* Brand Name — retro TV title style */}
+          <Link href="/" className="flex items-center gap-1 group -ml-70">
+              <span className="font-mono text-lg font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>【</span>
+              <span
+                className="font-black text-base sm:text-2xl tracking-tight uppercase leading-tight"
+                style={{
+                  color: '#1a0e00',
+                  textShadow: '1px 1px 0px rgba(255,255,255,0.3)',
+                  fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+                }}
+              >
+                ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย
+              </span>
+              <span className="font-mono text-lg font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>】</span>
+            </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 font-medium">
+          <div className="hidden md:flex items-center gap-6 font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/70 hover:text-[#ffde00] transition-all relative group py-1"
+                className="text-sm font-bold uppercase tracking-wider transition-all duration-150 px-3 py-1.5 hover:translate-x-[-1px] hover:translate-y-[-1px]"
+                style={{
+                  color: '#1a0e00',
+                  border: '2px solid transparent',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.border = '2px solid #1a0e00'
+                  ;(e.currentTarget as HTMLElement).style.background = 'rgba(26,14,0,0.1)'
+                  ;(e.currentTarget as HTMLElement).style.boxShadow = '2px 2px 0 #1a0e00'
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.border = '2px solid transparent'
+                  ;(e.currentTarget as HTMLElement).style.background = 'transparent'
+                  ;(e.currentTarget as HTMLElement).style.boxShadow = 'none'
+                }}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gradient-to-r from-[#ffde00] to-transparent transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button
+          <div className="hidden md:block -mr-60">
+            <button
               onClick={handleLineContact}
-              className="bg-[#ff9100] hover:bg-[#ffde00] text-[#40030b] font-bold px-6 py-5 rounded-xl transition-all duration-300 hover:scale-105"
-              style={{ boxShadow: '0 0 20px rgba(255,145,0,0.3)' }}
+              className="font-black uppercase tracking-wider px-5 py-3 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+              style={{
+                background: '#f3f84a',
+                color: '#1a0e00',
+                border: '3px solid #1a0e00',
+                boxShadow: '4px 4px 0px #1a0e00',
+                fontSize: '0.85rem',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #1a0e00' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #1a0e00' }}
             >
-              <MessageCircle className="mr-2 w-5 h-5" />
+              <MessageCircle className="inline mr-2 w-4 h-4" />
               สอบถามเพิ่มเติม
-            </Button>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-3 hover:bg-white/10 rounded-xl transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            <button
+            className="md:hidden p-2 font-black transition-colors"
+              style={{ color: '#1a0e00', border: '2px solid #1a0e00', background: 'transparent' }}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 right-0 bg-[#40030b]/98 backdrop-blur-2xl border-b border-[#ffde00]/10 shadow-2xl animate-in slide-in-from-top-4 duration-300">
-          <div className="px-6 py-8 space-y-6">
+        <div
+          className="md:hidden absolute top-[80px] left-0 right-0 z-50"
+          style={{
+            background: '#93c8cf',
+            borderTop: '3px solid #f3f84a',
+            borderBottom: '3px solid #f3f84a',
+            boxShadow: '0 8px 0px #7a5010',
+          }}
+        >
+          <div className="px-6 py-6 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-xl font-semibold text-white/80 hover:text-[#ffde00] transition-colors"
+                className="block text-lg font-black uppercase tracking-wide py-2 border-b-2 border-[#1a0e00]/20"
+                style={{ color: '#1a0e00' }}
                 onClick={() => setIsOpen(false)}
               >
-                <span className="text-[#ffde00]/50 font-mono mr-2">&gt;</span>
+                <span style={{ color: '#7a5010' }} className="font-mono mr-2">▶</span>
                 {link.label}
               </Link>
             ))}
-            <Button
+            <button
               onClick={handleLineContact}
-              className="w-full h-14 text-lg font-bold bg-[#ff9100] hover:bg-[#ffde00] text-[#40030b] rounded-2xl"
+              className="w-full h-14 text-lg font-black uppercase tracking-wider transition-all duration-150"
+              style={{
+                background: '#f3f84a',
+                color: '#1a0e00',
+                border: '3px solid #1a0e00',
+                boxShadow: '4px 4px 0px #1a0e00',
+              }}
             >
-              <MessageCircle className="mr-2 w-6 h-6" />
+              <MessageCircle className="inline mr-2 w-5 h-5" />
               สอบถามเพิ่มเติม
-            </Button>
+            </button>
           </div>
         </div>
       )}
