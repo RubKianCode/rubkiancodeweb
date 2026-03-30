@@ -1,124 +1,164 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight, Code2, Camera, Zap, Shield, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowRight, Camera, Shield, Zap, Clock } from "lucide-react"
+import { RetroNoise } from "@/components/retro-noise"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden retro-scanlines retro-vignette crt-flicker">
 
-      {/* Base Background */}
-      <div className="absolute inset-0 z-0" />
+      {/* Base Paper Background */}
       <Image
         src="/bg-paper.png"
         alt="paper background"
         fill
-        className="object-cover opacity-90"
-        priority />
-
-      <div className="absolute inset-0 bg-[#f3f84a]/20 backdrop-blur-[1px]" />
-
-      {/* Noise Overlay */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none opacity-[0.2]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' 
-          xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence 
-          type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}
+        className="object-cover"
+        priority
+        style={{ zIndex: 0 }}
       />
 
-      {/* Glow Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
-        style={{ background: 'radial-gradient(circle, #40030b, transparent)' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[80px]"
-        style={{ background: 'radial-gradient(circle, #40030b, transparent)' }} />
+      {/* Warm amber tint layers */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.55)' }} />
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(243, 248, 74, 0.18)' }} />
 
-      {/* Top Beam */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ffde00]/40 to-transparent" />
+      {/* TV Noise Animation */}
+      <RetroNoise opacity={0.055} className="z-[2]" blendMode="overlay" />
+      
+      {/* Vignette dark corners */}
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(20, 8, 0, 0.55) 100%)' }}
+      />
 
-      {/* Corner Accent Lines */}
-      <div className="absolute top-24 left-8 w-16 h-16 border-l-2 border-t-2 border-[#ffde00]/40 rounded-tl-sm" />
-      <div className="absolute top-24 right-8 w-16 h-16 border-r-2 border-t-2 border-[#ffde00]/40 rounded-tr-sm" />
-      <div className="absolute bottom-16 left-8 w-16 h-16 border-l-2 border-b-2 border-[#ffde00]/40 rounded-bl-sm" />
-      <div className="absolute bottom-16 right-8 w-16 h-16 border-r-2 border-b-2 border-[#ffde00]/40 rounded-br-sm" />
+      {/* Top & bottom thick yellow border lines */}
+      <div className="absolute top-16 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 12px rgba(243,248,74,0.8)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 12px rgba(243,248,74,0.8)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      {/* Corner brackets */}
+      <div className="absolute top-20 left-6 w-10 h-10 border-l-4 border-t-4 border-[#f3f84a] z-[4]" style={{ boxShadow: '-2px -2px 0 #7a5010' }} />
+      <div className="absolute top-20 right-6 w-10 h-10 border-r-4 border-t-4 border-[#f3f84a] z-[4]" style={{ boxShadow: '2px -2px 0 #7a5010' }} />
+      <div className="absolute bottom-4 left-6 w-10 h-10 border-l-4 border-b-4 border-[#f3f84a] z-[4]" style={{ boxShadow: '-2px 2px 0 #7a5010' }} />
+      <div className="absolute bottom-4 right-6 w-10 h-10 border-r-4 border-b-4 border-[#f3f84a] z-[4]" style={{ boxShadow: '2px 2px 0 #7a5010' }} />
 
-        {/* Animated Badge */}
-        <div className="inline-flex items-center gap-3 bg-[#40030b]/60 border border-[#ffde00]/30 rounded-full px-5 py-2.5 mb-10 backdrop-blur-md">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffde00] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffde00]"></span>
+      {/* Main Content */}
+      <div className="relative z-[6] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+
+        {/* Channel badge */}
+        <div className="inline-flex items-center gap-3 mb-6 px-6 py-2"
+          style={{
+            background: 'rgba(147, 200, 207, 0.9)',
+            border: '3px solid #f3f84a',
+            boxShadow: '4px 4px 0px #7a5010',
+          }}>
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
           </span>
-          <Camera className="w-4 h-4 text-[#ffde00]" />
-          <span className="text-sm font-bold text-[#ffde00] uppercase tracking-[0.15em]">Professional Photobooth Solutions</span>
+          <Camera className="w-4 h-4 text-[#1a0e00]" />
+          <span className="text-sm font-black text-[#1a0e00] uppercase tracking-[0.2em]">Professional Photobooth Solutions</span>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.1] tracking-tight">
-          ระบบซอฟต์แวร์โฟโต้บูธ
+        {/* Main Heading — Retro TV style */}
+        <h1
+          className="text-xl sm:text-xl md:text-7xl lg:text-9xl font-black uppercase leading-[1.15] tracking-tight mb-5"
+          style={{
+            color: '#ffffffff',
+            textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122, 80, 16, 0.4)',
+            fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+            WebkitTextStroke: '2px #c8900a',
+          }}
+        >
+          <span className="tracking-wide">ระบบซอฟต์แวร์</span>
           <br />
-          <span className="text-[#ffde00] italic" style={{ textShadow: '0 0 40px rgba(255,222,0,0.4)' }}>
-            อันดับ 1 ในไทย
-          </span>
+          <span className="tracking-[8]">โฟโต้บูธ</span>
         </h1>
 
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl font-black uppercase mb-5 tracking-[0.08em]"
+          style={{
+            color: '#fcff5cff',
+            textShadow: '3px 3px 0px #3d2000, 0 0 30px rgba(255,255,255,0.3)',
+            fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+          }}
+        >
+          <span className="text-6xl">
+            อันดับ&nbsp;
+            <span style={{ color: '#93c8cf', textShadow: '3px 3px 0px #2a5a60, 0 0 20px rgba(147,200,207,0.5)' }}>1</span>
+            &nbsp;ในไทย
+          </span>
+        </h2>
+
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-14 leading-relaxed font-medium">
+        <p className="text-sm sm:text-xl max-w-xl mx-auto mb-6 leading-relaxed font-medium"
+          style={{ color: 'rgba(255,255,255,0.85)', textShadow: '1px 1px 0px rgba(0,0,0,0.8)' }}>
           ยกระดับธุรกิจของคุณด้วยซอฟต์แวร์ระดับสากล
           <br className="hidden sm:block" />
-          เสถียร ใช้งานง่าย และรองรับทุกความต้องการของงานคุณ
+          เสถียร ใช้งานง่าย และรองรับทุกความต้องการ
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
-          <Button
-            size="lg"
-            className="bg-[#40030b] text-white hover:bg-[#5a0410] h-16 px-10 text-xl font-bold rounded-2xl group transition-all duration-300 hover:scale-105 active:scale-95 border border-[#ffde00]/20"
-            style={{ boxShadow: '0 0 30px rgba(64,3,11,0.5), 0 0 60px rgba(64,3,11,0.2)' }}
+        {/* CTA Buttons — retro style */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <button
+            className="group h-12 px-8 text-base font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
+            style={{
+              background: '#f3f84a',
+              color: '#1a0e00',
+              border: '3px solid #1a0e00',
+              boxShadow: '5px 5px 0px #1a0e00',
+            }}
             onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
           >
             สอบถามข้อมูลเพิ่มเติม
-            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform" />
-          </Button>
+            <ArrowRight className="inline ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
 
-          <Button
-            size="lg"
-            className="h-16 px-10 text-xl font-bold rounded-2xl bg-black/40 text-white hover:bg-black/60 border border-white/20 hover:border-[#ffde00]/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+          <button
+            className="h-12 px-8 text-base font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
+            style={{
+              background: '#93c8cf',
+              color: '#1a0e00',
+              border: '3px solid #1a0e00',
+              boxShadow: '5px 5px 0px #1a0e00',
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
           >
-            <Code2 className="mr-2 w-6 h-6 text-[#ffde00]" />
             ดูตัวอย่างระบบ
-          </Button>
+          </button>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-10">
           {[
-            { number: "500+", label: "อีเวนต์ที่ไว้วางใจ", icon: Camera },
+            { number: "1500+", label: "อีเวนต์ที่ไว้วางใจ", icon: Camera },
             { number: "100%", label: "การันตีความเสถียร", icon: Shield },
-            { number: "5+", label: "ปีประสบการณ์", icon: Zap },
+            { number: "8+", label: "ปีประสบการณ์", icon: Zap },
             { number: "24/7", label: "ดูแลตลอดการใช้งาน", icon: Clock },
-          ].map((stat, index) => (
-            <div key={index}
-              className="relative text-center p-4 rounded-xl border border-[#40030b]/40 bg-black/20 backdrop-blur-sm hover:border-[#ffde00]/30 transition-all duration-300 group"
-            >
-              <stat.icon className="w-5 h-5 text-[#ffde00]/40 mx-auto mb-2 group-hover:text-[#ffde00]/70 transition-colors" />
-              <div className="text-3xl sm:text-4xl font-black text-[#ffde00] mb-1"
-                style={{ textShadow: '0 0 20px rgba(255,222,0,0.3)' }}>
+          ].map((stat, i) => (
+            <div key={i}
+              className="text-center p-4 transition-all duration-150 hover:translate-x-[-1px] hover:translate-y-[-1px]"
+              style={{
+                background: 'rgba(26, 14, 0, 0.7)',
+                border: '2px solid #f3f84a',
+                boxShadow: '3px 3px 0px #7a5010',
+              }}>
+              <stat.icon className="w-5 h-5 mx-auto mb-1" style={{ color: '#f3f84a' }} />
+              <div className="text-3xl font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>
                 {stat.number}
               </div>
-              <div className="text-xs font-bold text-white/50 uppercase tracking-widest">{stat.label}</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-white/70">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-[#ffde00]/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-[#ffde00] rounded-full animate-pulse" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[6] animate-bounce">
+        <div className="w-6 h-10 flex items-start justify-center p-2" style={{ border: '2px solid #f3f84a', boxShadow: '2px 2px 0 #7a5010' }}>
+          <div className="w-1.5 h-1.5 animate-pulse" style={{ background: '#f3f84a' }} />
         </div>
       </div>
     </section>
