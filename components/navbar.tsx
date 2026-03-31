@@ -2,17 +2,19 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, MessageCircle } from "lucide-react"
-
-const navLinks = [
-  { href: "#services", label: "รับผลิตซอฟต์แวร์" },
-  { href: "#products", label: "เช่าซอฟต์แวร์" },
-  { href: "#photobooth", label: "เช่า Photobooth" },
-  { href: "#contact", label: "ติดต่อเรา" },
-]
+import { Menu, X, MessageCircle, Languages } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const { t, lang, toggleLang, isTranslating } = useLanguage()
+
+  const navLinks = [
+    { href: "#services", label: t("รับผลิตซอฟต์แวร์", "Software Development") },
+    { href: "#products", label: t("เช่าซอฟต์แวร์", "Software Rental") },
+    { href: "#photobooth", label: t("เช่า Photobooth", "Photobooth Rental") },
+    { href: "#contact", label: t("ติดต่อเรา", "Contact Us") },
+  ]
 
   const handleLineContact = () => {
     window.open('https://line.me/ti/p/@rubkiancode', '_blank')
@@ -35,18 +37,19 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-20">
 
-          {/* Brand Name — retro TV title style */}
+          {/* Brand Name */}
           <Link href="/" className="flex items-center gap-1 group -ml-70">
               <span className="font-mono text-lg font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>【</span>
               <span
-                className="font-black text-base sm:text-2xl tracking-tight uppercase leading-tight"
+                className="font-black text-base sm:text-2xl uppercase leading-tight"
                 style={{
                   color: '#1a0e00',
                   textShadow: '1px 1px 0px rgba(255,255,255,0.3)',
                   fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+                  letterSpacing: lang === 'th' ? '0.05em' : '0',
                 }}
               >
-                ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย
+                {t("ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย", "Photobooth Software — Thailand")}
               </span>
               <span className="font-mono text-lg font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>】</span>
             </Link>
@@ -61,11 +64,13 @@ export function Navbar() {
                 style={{
                   color: '#1a0e00',
                   border: '2px solid transparent',
+                  borderRadius: '12px',
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.border = '2px solid #1a0e00'
                   ;(e.currentTarget as HTMLElement).style.background = 'rgba(26,14,0,0.1)'
                   ;(e.currentTarget as HTMLElement).style.boxShadow = '2px 2px 0 #1a0e00'
+                  ;(e.currentTarget as HTMLElement).style.borderRadius = '12px'
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.border = '2px solid transparent'
@@ -78,30 +83,74 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block -mr-60">
+          {/* Desktop right side: Lang Toggle + CTA */}
+          <div className="hidden md:flex items-center gap-3 -mr-60">
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLang}
+              title={lang === "th" ? "Switch to English" : "เปลี่ยนเป็นภาษาไทย"}
+              className="flex items-center gap-1.5 font-black uppercase tracking-wider px-3 py-2.5 transition-all duration-150 hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px]"
+              style={{
+                background: lang === "en" ? '#1a0e00' : 'rgba(26,14,0,0.12)',
+                color: lang === "en" ? '#f3f84a' : '#1a0e00',
+                border: '2px solid #1a0e00',
+                fontSize: '0.75rem',
+                borderRadius: '999px',
+                boxShadow: '3px 3px 0px #1a0e00',
+                minWidth: '72px',
+                justifyContent: 'center',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '3px 3px 0px #1a0e00' }}
+            >
+              <Languages className="w-3.5 h-3.5" />
+              {isTranslating ? (
+                <span className="animate-pulse">{lang === "th" ? "TH" : "EN"}</span>
+              ) : (
+                <span>{lang === "th" ? "TH" : "EN"}</span>
+              )}
+            </button>
+
             <button
               onClick={handleLineContact}
-              className="font-black uppercase tracking-wider px-5 py-3 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+              className="font-black uppercase px-5 py-3 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
               style={{
                 background: '#f3f84a',
                 color: '#1a0e00',
                 border: '3px solid #1a0e00',
                 boxShadow: '4px 4px 0px #1a0e00',
                 fontSize: '0.85rem',
+                borderRadius: '999px',
+                letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #1a0e00' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #1a0e00' }}
             >
               <MessageCircle className="inline mr-2 w-4 h-4" />
-              สอบถามเพิ่มเติม
+              {t("สอบถามเพิ่มเติม", "Inquire Now")}
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile right side: Lang Toggle + Hamburger */}
+          <div className="md:hidden flex items-center gap-2">
             <button
-            className="md:hidden p-2 font-black transition-colors"
-              style={{ color: '#1a0e00', border: '2px solid #1a0e00', background: 'transparent' }}
+              onClick={toggleLang}
+              className="flex items-center gap-1 font-black px-2.5 py-2 transition-all duration-150"
+              style={{
+                background: lang === "en" ? '#1a0e00' : 'transparent',
+                color: lang === "en" ? '#f3f84a' : '#1a0e00',
+                border: '2px solid #1a0e00',
+                borderRadius: '999px',
+                fontSize: '0.7rem',
+              }}
+            >
+              <Languages className="w-3 h-3" />
+              {lang === "th" ? "TH" : "EN"}
+            </button>
+
+            <button
+              className="p-2 font-black transition-colors"
+              style={{ color: '#1a0e00', border: '2px solid #1a0e00', background: 'transparent', borderRadius: '12px' }}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -109,6 +158,7 @@ export function Navbar() {
             </button>
           </div>
         </div>
+      </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
@@ -142,10 +192,11 @@ export function Navbar() {
                 color: '#1a0e00',
                 border: '3px solid #1a0e00',
                 boxShadow: '4px 4px 0px #1a0e00',
+                borderRadius: '999px',
               }}
             >
               <MessageCircle className="inline mr-2 w-5 h-5" />
-              สอบถามเพิ่มเติม
+              {t("สอบถามเพิ่มเติม", "Inquire Now")}
             </button>
           </div>
         </div>

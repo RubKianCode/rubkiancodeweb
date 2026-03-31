@@ -3,22 +3,25 @@
 import Link from "next/link"
 import { MessageCircle, Mail, Phone, MapPin } from "lucide-react"
 import { RetroNoise } from "@/components/retro-noise"
-
-const navLinks = [
-  { href: "#services", label: "รับผลิตซอฟต์แวร์" },
-  { href: "#products", label: "เช่าซอฟต์แวร์" },
-  { href: "#photobooth", label: "เช่า Photobooth" },
-  { href: "#contact", label: "ติดต่อเรา" },
-]
-
-const contactLinks = [
-  { icon: Mail, label: "contact@rubkaincode.com", href: "mailto:contact@rubkaincode.com" },
-  { icon: Phone, label: "02-XXX-XXXX", href: "tel:02-XXX-XXXX" },
-  { icon: MessageCircle, label: "@rubkiancode", href: "https://line.me/ti/p/@rubkiancode" },
-  { icon: MapPin, label: "กรุงเทพมหานคร", href: "#" },
-]
+import { useLanguage } from "@/lib/language-context"
 
 export function Footer() {
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { href: "#services", label: t("รับผลิตซอฟต์แวร์", "Software Development") },
+    { href: "#products", label: t("เช่าซอฟต์แวร์", "Software Rental") },
+    { href: "#photobooth", label: t("เช่า Photobooth", "Photobooth Rental") },
+    { href: "#contact", label: t("ติดต่อเรา", "Contact Us") },
+  ]
+
+  const contactLinks = [
+    { icon: Mail, label: "contact@rubkaincode.com", href: "mailto:contact@rubkaincode.com" },
+    { icon: Phone, label: "02-XXX-XXXX", href: "tel:02-XXX-XXXX" },
+    { icon: MessageCircle, label: "@rubkiancode", href: "https://line.me/ti/p/@rubkiancode" },
+    { icon: MapPin, label: t("กรุงเทพมหานคร", "Bangkok"), href: "#" },
+  ]
+
   return (
     <footer className="relative overflow-hidden" style={{ background: '#0f0800' }}>
 
@@ -56,28 +59,31 @@ export function Footer() {
                   fontFamily: 'var(--font-prompt), Prompt, sans-serif',
                 }}
               >
-                โฟโต้บูธ ประเทศไทย
+                {t("โฟโต้บูธ ประเทศไทย", "Photobooth Thailand")}
               </span>
               <span className="font-mono text-xl font-black" style={{ color: '#f3f84a' }}>】</span>
             </Link>
             <p className="font-medium text-sm leading-relaxed mb-5 max-w-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              ผู้เชี่ยวชาญด้านระบบซอฟต์แวร์โฟโต้บูธ ให้บริการครบวงจร ทั้งผลิต ให้เช่า และให้คำปรึกษา
+              {t("ผู้เชี่ยวชาญด้านระบบซอฟต์แวร์โฟโต้บูธ ให้บริการครบวงจร ทั้งผลิต ให้เช่า และให้คำปรึกษา", "Photobooth software specialists offering full-service production, rental and consulting")}
             </p>
 
-            {/* Status badge — retro style */}
+            {/* Status badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2"
               style={{
                 background: 'rgba(243,248,74,0.08)',
                 border: '2px solid rgba(243,248,74,0.3)',
                 boxShadow: '3px 3px 0 #7a5010',
+                borderRadius: '999px',
               }}
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
               </span>
-              <span className="text-xs font-mono font-bold" style={{ color: 'rgba(255,255,255,0.5)' }}>System Online — 24/7</span>
+              <span className="text-xs font-mono font-bold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {t("ระบบออนไลน์ 24/7", "System Online — 24/7")}
+              </span>
             </div>
           </div>
 
@@ -87,7 +93,7 @@ export function Footer() {
               className="text-xs font-mono font-black uppercase tracking-[0.3em] mb-5"
               style={{ color: '#f3f84a' }}
             >
-              // บริการ
+              // {t("บริการ", "Services")}
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -113,7 +119,7 @@ export function Footer() {
               className="text-xs font-mono font-black uppercase tracking-[0.3em] mb-5"
               style={{ color: '#f3f84a' }}
             >
-              // ติดต่อ
+              // {t("ติดต่อ", "Contact")}
             </h4>
             <ul className="space-y-3">
               {contactLinks.map((item, index) => (
@@ -140,7 +146,7 @@ export function Footer() {
           style={{ borderTop: '2px solid rgba(243,248,74,0.15)' }}
         >
           <p className="text-xs font-mono font-bold" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            © 2026 ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย — All rights reserved.
+            © 2026 {t("ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย", "Photobooth Software Thailand")} — {t("สงวนลิขสิทธิ์", "All rights reserved")}.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-xs font-mono font-bold transition-colors" style={{ color: 'rgba(255,255,255,0.25)' }}
