@@ -7,7 +7,7 @@ import { CodeBg } from "@/components/code-bg"
 import { useLanguage } from "@/lib/language-context"
 
 export function ContactSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const contactInfo = [
     {
@@ -86,7 +86,10 @@ export function ContactSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
-            <span className="text-xs font-black tracking-[0.2em] uppercase text-[#1a0e00]">
+            <span
+              className="text-xs font-black uppercase text-[#1a0e00]"
+              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+            >
               {t("ติดต่อเรา", "Get In Touch")}
             </span>
           </div>
@@ -98,6 +101,7 @@ export function ContactSection() {
               textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
               fontFamily: 'var(--font-prompt), Prompt, sans-serif',
               WebkitTextStroke: '1px #c8900a',
+              letterSpacing: lang === 'th' ? '0.05em' : '0',
             }}
           >
             {t("พร้อมให้คุณ", "Ready For")}
@@ -106,7 +110,7 @@ export function ContactSection() {
               {t("ติดต่อเราได้เลย", "You To Reach Us")}
             </span>
           </h2>
-          <p className="text-lg max-w-xl mx-auto leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <p className="text-lg max-w-xl mx-auto leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}>
             {t("ทีมงานผู้เชี่ยวชาญพร้อมรับฟังและให้คำแนะนำอย่างตรงจุด", "Our team of experts is ready to listen and provide targeted advice")}
           </p>
         </div>
@@ -224,11 +228,11 @@ export function ContactSection() {
               <div className="p-8">
                 <h3
                   className="text-2xl font-black uppercase mb-2"
-                  style={{ color: '#f3f84a', textShadow: '3px 3px 0px #7a5010' }}
+                  style={{ color: '#f3f84a', textShadow: '3px 3px 0px #7a5010', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
                 >
                   {t("ส่งข้อความถึงเรา", "Send Us a Message")}
                 </h3>
-                <p className="text-sm mb-8 font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <p className="text-sm mb-8 font-medium" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}>
                   {t("กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด", "Fill in the details below and our team will get back to you shortly")}
                 </p>
 
@@ -240,8 +244,8 @@ export function ContactSection() {
                     ].map((field, i) => (
                       <div key={i} className="space-y-2">
                         <label
-                          className="block text-xs font-black tracking-[0.2em] uppercase"
-                          style={{ color: '#f3f84a' }}
+                          className="block text-xs font-black uppercase"
+                          style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
                         >
                           {field.label}
                         </label>
@@ -271,7 +275,10 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-black tracking-[0.2em] uppercase" style={{ color: '#f3f84a' }}>
+                    <label
+                      className="block text-xs font-black uppercase"
+                      style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                    >
                       {t("หัวข้อ", "Subject")}
                     </label>
                     <input
@@ -284,7 +291,10 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-black tracking-[0.2em] uppercase" style={{ color: '#f3f84a' }}>
+                    <label
+                      className="block text-xs font-black uppercase"
+                      style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                    >
                       {t("รายละเอียด", "Details")}
                     </label>
                     <textarea
@@ -299,13 +309,14 @@ export function ContactSection() {
 
                   <button
                     type="submit"
-                    className="w-full h-14 font-black text-lg flex items-center justify-center gap-3 uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                    className="w-full h-14 font-black text-lg flex items-center justify-center gap-3 uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                     style={{
                       background: '#f3f84a',
                       color: '#1a0e00',
                       border: '3px solid #1a0e00',
                       boxShadow: '5px 5px 0px #7a5010',
                       borderRadius: '999px',
+                      letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #7a5010' }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #7a5010' }}

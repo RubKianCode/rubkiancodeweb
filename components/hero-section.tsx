@@ -7,7 +7,7 @@ import { CodeBg } from "@/components/code-bg"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const stats = [
     { number: "1500+", label: t("อีเวนต์ที่ไว้วางใจ", "Trusted Events"), icon: Camera },
@@ -71,14 +71,17 @@ export function HeroSection() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
           </span>
           <Camera className="w-4 h-4 text-[#1a0e00]" />
-          <span className="text-sm font-black text-[#1a0e00] uppercase tracking-[0.2em]">
-            {t("ระบบโฟโต้บูธมืออาชีพ", "Professional Photobooth Solutions")}
+          <span
+            className="text-sm font-black text-[#1a0e00] uppercase"
+            style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+          >
+            {t("Professional Photobooth Solutions", "Professional Photobooth Solutions")}
           </span>
         </div>
 
         {/* Main Heading */}
         <h1
-          className="text-xl sm:text-xl md:text-7xl lg:text-9xl font-black uppercase leading-[1.15] tracking-tight mb-5"
+          className="text-xl sm:text-xl md:text-7xl lg:text-9xl font-black uppercase leading-[1.15] mb-5"
           style={{
             color: '#ffffffff',
             textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122, 80, 16, 0.4)',
@@ -86,17 +89,22 @@ export function HeroSection() {
             WebkitTextStroke: '2px #c8900a',
           }}
         >
-          <span className="tracking-wide">{t("ระบบซอฟต์แวร์", "Software System")}</span>
+          <span style={{ letterSpacing: lang === 'th' ? '0.05em' : '0' }}>
+            {t("ระบบซอฟต์แวร์", "Software System")}
+          </span>
           <br />
-          <span className="tracking-[8]">{t("โฟโต้บูธ", "Photobooth")}</span>
+          <span style={{ letterSpacing: lang === 'th' ? '0.05em' : '0' }}>
+            {t("โฟโต้บูธ", "Photobooth")}
+          </span>
         </h1>
 
         <h2
-          className="text-2xl sm:text-3xl md:text-4xl font-black uppercase mb-5 tracking-[0.08em]"
+          className="text-2xl sm:text-3xl md:text-4xl font-black uppercase mb-5"
           style={{
             color: '#fcff5cff',
             textShadow: '3px 3px 0px #3d2000, 0 0 30px rgba(255,255,255,0.3)',
             fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+            letterSpacing: lang === 'th' ? '0.07em' : '0.025em',
           }}
         >
           <span className="text-6xl">
@@ -107,8 +115,14 @@ export function HeroSection() {
         </h2>
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-xl max-w-xl mx-auto mb-6 leading-relaxed font-medium"
-          style={{ color: 'rgba(255,255,255,0.85)', textShadow: '1px 1px 0px rgba(0,0,0,0.8)' }}>
+        <p
+          className="text-sm sm:text-xl max-w-xl mx-auto mb-6 leading-relaxed font-medium"
+          style={{
+            color: 'rgba(255,255,255,0.85)',
+            textShadow: '1px 1px 0px rgba(0,0,0,0.8)',
+            letterSpacing: lang === 'th' ? '0.02em' : '0',
+          }}
+        >
           {t("ยกระดับธุรกิจของคุณด้วยซอฟต์แวร์ระดับสากล", "Elevate your business with world-class software")}
           <br className="hidden sm:block" />
           {t("เสถียร ใช้งานง่าย และรองรับทุกความต้องการ", "Stable, easy to use, and meets every need")}
@@ -117,13 +131,14 @@ export function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <button
-            className="group h-12 px-8 text-base font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
+            className="group h-12 px-8 text-base font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
             style={{
               background: '#f3f84a',
               color: '#1a0e00',
               border: '3px solid #1a0e00',
               boxShadow: '5px 5px 0px #1a0e00',
               borderRadius: '999px',
+              letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
             }}
             onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
@@ -134,13 +149,14 @@ export function HeroSection() {
           </button>
 
           <button
-            className="h-12 px-8 text-base font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
+            className="h-12 px-8 text-base font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px]"
             style={{
               background: '#93c8cf',
               color: '#1a0e00',
               border: '3px solid #1a0e00',
               boxShadow: '5px 5px 0px #1a0e00',
               borderRadius: '999px',
+              letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
             }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
@@ -164,7 +180,7 @@ export function HeroSection() {
               <div className="text-3xl font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>
                 {stat.number}
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-white/70">{stat.label}</div>
+              <div className="text-xs font-bold uppercase text-white/70" style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}>{stat.label}</div>
             </div>
           ))}
         </div>

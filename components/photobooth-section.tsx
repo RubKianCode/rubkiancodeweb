@@ -7,7 +7,7 @@ import { CodeBg } from "@/components/code-bg"
 import { useLanguage } from "@/lib/language-context"
 
 export function PhotoboothSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const features = [
     t("ถ่ายรูปสไตล์เกาหลี 4 ช่อง", "Korean-style 4-panel photo strips"),
@@ -63,7 +63,10 @@ export function PhotoboothSection() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
               </span>
               <Camera className="w-4 h-4 text-[#1a0e00]" />
-              <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">
+              <span
+                className="text-sm font-black text-[#1a0e00] uppercase"
+                style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+              >
                 {t("โฟโต้บูธสไตล์เกาหลี", "Korean Style Photobooth")}
               </span>
             </div>
@@ -75,6 +78,7 @@ export function PhotoboothSection() {
                 textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
                 fontFamily: 'var(--font-prompt), Prompt, sans-serif',
                 WebkitTextStroke: '1px #c8900a',
+                letterSpacing: lang === 'th' ? '0.05em' : '0',
               }}
             >
               {t("ให้เช่า", "Rent")}
@@ -86,8 +90,10 @@ export function PhotoboothSection() {
               </span>
             </h2>
 
-            <p className="text-lg text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
-              style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)' }}>
+            <p
+              className="text-lg text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
+              style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+            >
               {t(
                 "บริการให้เช่าตู้ถ่ายรูปสไตล์เกาหลี พร้อมโปรแกรมที่พัฒนาเอง เหมาะสำหรับงาน Event, งานแต่งงาน, งานเปิดตัวสินค้า และอื่นๆ",
                 "Korean-style photo booth rental service with our own custom software. Ideal for Events, Weddings, Product Launches, and more."
@@ -104,7 +110,10 @@ export function PhotoboothSection() {
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#1a0e00]" />
                   </div>
-                  <span className="text-white font-bold text-sm" style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)' }}>
+                  <span
+                    className="text-white font-bold text-sm"
+                    style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+                  >
                     {feature}
                   </span>
                 </li>
@@ -114,13 +123,14 @@ export function PhotoboothSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                className="h-14 px-8 text-lg font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                className="h-14 px-8 text-lg font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                 style={{
                   background: '#f3f84a',
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
                   borderRadius: '999px',
+                  letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
@@ -130,13 +140,14 @@ export function PhotoboothSection() {
                 {t("จองเช่า Photobooth", "Book Photobooth")}
               </button>
               <button
-                className="h-14 px-8 text-lg font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                className="h-14 px-8 text-lg font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                 style={{
                   background: '#93c8cf',
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
                   borderRadius: '999px',
+                  letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}

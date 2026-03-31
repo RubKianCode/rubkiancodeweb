@@ -7,7 +7,7 @@ import { CodeBg } from "@/components/code-bg"
 import { useLanguage } from "@/lib/language-context"
 
 export function ServicesSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const services = [
     {
@@ -93,7 +93,10 @@ export function ServicesSection() {
             style={{ background: '#93c8cf', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">
+            <span
+              className="text-sm font-black text-[#1a0e00] uppercase"
+              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+            >
               {t("บริการของเรา", "Our Services")}
             </span>
           </div>
@@ -105,12 +108,15 @@ export function ServicesSection() {
               textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
               fontFamily: 'var(--font-prompt), Prompt, sans-serif',
               WebkitTextStroke: '1px #c8900a',
+              letterSpacing: lang === 'th' ? '0.05em' : '0',
             }}
           >
             {t("บริการของเรา", "Our Services")}
           </h2>
-          <p className="text-white font-bold text-lg max-w-2xl mx-auto"
-            style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.8)' }}>
+          <p
+            className="text-white font-bold text-lg max-w-2xl mx-auto"
+            style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+          >
             {t("เราให้บริการด้านซอฟต์แวร์อย่างครบวงจร ตั้งแต่การให้คำปรึกษา ออกแบบ พัฒนา จนถึงดูแลหลังการขาย", "We provide comprehensive software services from consulting, design, development to after-sales support")}
           </p>
         </div>
@@ -151,11 +157,14 @@ export function ServicesSection() {
 
               <h3
                 className="text-xl font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
-                style={{ color: '#f3f84a', textShadow: '2px 2px 0px #7a5010' }}
+                style={{ color: '#f3f84a', textShadow: '2px 2px 0px #7a5010', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
               >
                 {service.title}
               </h3>
-              <p className="text-white/70 mb-5 text-sm leading-relaxed font-medium">
+              <p
+                className="text-white/70 mb-5 text-sm leading-relaxed font-medium"
+                style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+              >
                 {service.description}
               </p>
               <ul className="space-y-1.5">

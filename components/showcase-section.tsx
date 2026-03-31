@@ -7,7 +7,7 @@ import { CodeBg } from "@/components/code-bg"
 import { useLanguage } from "@/lib/language-context"
 
 export function ShowcaseSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const projects = [
     {
@@ -79,7 +79,10 @@ export function ShowcaseSection() {
             style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">
+            <span
+              className="text-sm font-black text-[#1a0e00] uppercase"
+              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+            >
               {t("ผลงานซอฟต์แวร์", "Software Showcase")}
             </span>
           </div>
@@ -90,11 +93,15 @@ export function ShowcaseSection() {
               color: '#1a0e00',
               textShadow: '4px 4px 0px #7a5010',
               fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+              letterSpacing: lang === 'th' ? '0.05em' : '0',
             }}
           >
             {t("ผลงานของเรา", "Our Portfolio")}
           </h2>
-          <p className="text-[#1a0e00] font-bold text-lg max-w-2xl mx-auto">
+          <p
+            className="text-[#1a0e00] font-bold text-lg max-w-2xl mx-auto"
+            style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+          >
             {t("ตัวอย่างโปรเจกต์ที่เราได้พัฒนาให้กับลูกค้า", "Sample projects we have developed for our clients")}
           </p>
         </div>
@@ -151,7 +158,10 @@ export function ShowcaseSection() {
                   className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: 'rgba(243,248,74,0.85)' }}
                 >
-                  <div className="flex items-center gap-2 font-black uppercase text-[#1a0e00]">
+                  <div
+                    className="flex items-center gap-2 font-black uppercase text-[#1a0e00]"
+                    style={{ letterSpacing: lang === 'th' ? '0.05em' : '0.025em' }}
+                  >
                     <ExternalLink className="w-6 h-6" />
                     <span>{t("ดูรายละเอียด", "View Details")}</span>
                   </div>
@@ -162,8 +172,15 @@ export function ShowcaseSection() {
               <div className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <span
-                    className="text-xs font-black uppercase tracking-wider px-3 py-1"
-                    style={{ background: '#93c8cf', color: '#1a0e00', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00', borderRadius: '999px' }}
+                    className="text-xs font-black uppercase px-3 py-1"
+                    style={{
+                      background: '#93c8cf',
+                      color: '#1a0e00',
+                      border: '2px solid #1a0e00',
+                      boxShadow: '2px 2px 0 #1a0e00',
+                      borderRadius: '999px',
+                      letterSpacing: '0.05em',
+                    }}
                   >
                     {project.category}
                   </span>
@@ -174,11 +191,14 @@ export function ShowcaseSection() {
 
                 <h3
                   className="text-xl font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
-                  style={{ color: '#ffffff', textShadow: '1px 1px 0 rgba(0,0,0,0.5)' }}
+                  style={{ color: '#ffffff', textShadow: '1px 1px 0 rgba(0,0,0,0.5)', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
                 >
                   {project.title}
                 </h3>
-                <p className="text-white/60 text-sm mb-4 leading-relaxed font-medium">
+                <p
+                  className="text-white/60 text-sm mb-4 leading-relaxed font-medium"
+                  style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+                >
                   {project.description}
                 </p>
 

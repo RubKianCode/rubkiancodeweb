@@ -43,8 +43,8 @@ export default function RootLayout({
     <html lang="th">
       <body className={`${inter.variable} ${prompt.variable} font-sans antialiased`}>
         <LanguageProvider>
-          {children}
-        </LanguageProvider>
+            {children}
+          </LanguageProvider>
         <Analytics />
       </body>
     </html>

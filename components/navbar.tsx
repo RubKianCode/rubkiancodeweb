@@ -41,11 +41,12 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-1 group -ml-70">
               <span className="font-mono text-lg font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>【</span>
               <span
-                className="font-black text-base sm:text-2xl tracking-tight uppercase leading-tight"
+                className="font-black text-base sm:text-2xl uppercase leading-tight"
                 style={{
                   color: '#1a0e00',
                   textShadow: '1px 1px 0px rgba(255,255,255,0.3)',
                   fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+                  letterSpacing: lang === 'th' ? '0.05em' : '0',
                 }}
               >
                 {t("ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย", "Photobooth Software — Thailand")}
@@ -112,7 +113,7 @@ export function Navbar() {
 
             <button
               onClick={handleLineContact}
-              className="font-black uppercase tracking-wider px-5 py-3 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+              className="font-black uppercase px-5 py-3 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
               style={{
                 background: '#f3f84a',
                 color: '#1a0e00',
@@ -120,6 +121,7 @@ export function Navbar() {
                 boxShadow: '4px 4px 0px #1a0e00',
                 fontSize: '0.85rem',
                 borderRadius: '999px',
+                letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #1a0e00' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #1a0e00' }}
