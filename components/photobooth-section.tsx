@@ -3,17 +3,21 @@
 import { Camera, Heart, Sparkles, Star, CheckCircle2, Zap } from "lucide-react"
 import Image from "next/image"
 import { RetroNoise } from "@/components/retro-noise"
-
-const features = [
-  "ถ่ายรูปสไตล์เกาหลี 4 ช่อง",
-  "Filter สวยๆ มากกว่า 50 แบบ",
-  "พิมพ์รูปทันที รูปสวยคมชัด",
-  "Frame น่ารักๆ อัพเดทใหม่ทุกเดือน",
-  "รองรับงาน Event ทุกขนาด",
-  "ทีมงานดูแลตลอดงาน",
-]
+import { CodeBg } from "@/components/code-bg"
+import { useLanguage } from "@/lib/language-context"
 
 export function PhotoboothSection() {
+  const { t } = useLanguage()
+
+  const features = [
+    t("ถ่ายรูปสไตล์เกาหลี 4 ช่อง", "Korean-style 4-panel photo strips"),
+    t("Filter สวยๆ มากกว่า 50 แบบ", "50+ beautiful filters"),
+    t("พิมพ์รูปทันที รูปสวยคมชัด", "Instant high-quality photo printing"),
+    t("Frame น่ารักๆ อัพเดทใหม่ทุกเดือน", "Cute frames updated monthly"),
+    t("รองรับงาน Event ทุกขนาด", "Supports events of all sizes"),
+    t("ทีมงานดูแลตลอดงาน", "On-site support throughout the event"),
+  ]
+
   return (
     <section id="photobooth" className="relative py-24 overflow-hidden retro-scanlines">
 
@@ -27,21 +31,24 @@ export function PhotoboothSection() {
         style={{ zIndex: 0 }}
       />
 
-      {/* Overlays — warmer teal tint for variety */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.25)' }} />
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.50)' }} />
+      {/* Overlays — reduced for code BG */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.12)' }} />
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.30)' }} />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.045} className="z-[2]" blendMode="overlay" />
+      <RetroNoise opacity={0.03} className="z-[2]" blendMode="overlay" />
+
+      {/* Bouncing Code Symbols */}
+      <CodeBg opacity={0.8} particleCount={40} className="z-[3]" />
 
       {/* Vignette */}
-      <div className="absolute inset-0 z-[3] pointer-events-none"
+      <div className="absolute inset-0 z-[4] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(20,8,0,0.45) 100%)' }} />
 
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+      <div className="absolute top-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[6]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Content */}
@@ -49,14 +56,16 @@ export function PhotoboothSection() {
             {/* Badge */}
             <div
               className="inline-flex items-center gap-3 mb-8 px-5 py-2.5"
-              style={{ background: '#93c8cf', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00' }}
+              style={{ background: '#93c8cf', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
               </span>
               <Camera className="w-4 h-4 text-[#1a0e00]" />
-              <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">Korean Style Photobooth</span>
+              <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">
+                {t("โฟโต้บูธสไตล์เกาหลี", "Korean Style Photobooth")}
+              </span>
             </div>
 
             <h2
@@ -68,17 +77,21 @@ export function PhotoboothSection() {
                 WebkitTextStroke: '1px #c8900a',
               }}
             >
-              ให้เช่า
+              {t("ให้เช่า", "Rent")}
               <br />
               <span style={{ color: '#93c8cf', textShadow: '5px 5px 0px #2a5a60', WebkitTextStroke: '1px #1a5a60' }}>Photobooth</span>
               <br />
-              <span style={{ color: '#ffffff', textShadow: '4px 4px 0px #3d2000', WebkitTextStroke: '0px transparent' }}>สไตล์เกาหลี</span>
+              <span style={{ color: '#ffffff', textShadow: '4px 4px 0px #3d2000', WebkitTextStroke: '0px transparent' }}>
+                {t("สไตล์เกาหลี", "Korean Style")}
+              </span>
             </h2>
 
             <p className="text-lg text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
               style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)' }}>
-              บริการให้เช่าตู้ถ่ายรูปสไตล์เกาหลี พร้อมโปรแกรมที่พัฒนาเอง
-              เหมาะสำหรับงาน Event, งานแต่งงาน, งานเปิดตัวสินค้า และอื่นๆ
+              {t(
+                "บริการให้เช่าตู้ถ่ายรูปสไตล์เกาหลี พร้อมโปรแกรมที่พัฒนาเอง เหมาะสำหรับงาน Event, งานแต่งงาน, งานเปิดตัวสินค้า และอื่นๆ",
+                "Korean-style photo booth rental service with our own custom software. Ideal for Events, Weddings, Product Launches, and more."
+              )}
             </p>
 
             {/* Features */}
@@ -87,7 +100,7 @@ export function PhotoboothSection() {
                 <li key={index} className="flex items-center gap-3">
                   <div
                     className="w-6 h-6 flex items-center justify-center flex-shrink-0"
-                    style={{ background: '#93c8cf', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00' }}
+                    style={{ background: '#93c8cf', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00', borderRadius: '6px' }}
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#1a0e00]" />
                   </div>
@@ -107,13 +120,14 @@ export function PhotoboothSection() {
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
+                  borderRadius: '999px',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
                 onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
               >
                 <Heart className="inline mr-2 w-5 h-5" />
-                จองเช่า Photobooth
+                {t("จองเช่า Photobooth", "Book Photobooth")}
               </button>
               <button
                 className="h-14 px-8 text-lg font-black uppercase tracking-wider transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
@@ -122,12 +136,13 @@ export function PhotoboothSection() {
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
+                  borderRadius: '999px',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
               >
                 <Sparkles className="inline mr-2 w-5 h-5" />
-                ดูตัวอย่างรูป
+                {t("ดูตัวอย่างรูป", "See Sample Photos")}
               </button>
             </div>
           </div>
@@ -223,6 +238,7 @@ export function PhotoboothSection() {
                 background: '#f3f84a',
                 border: '3px solid #1a0e00',
                 boxShadow: '4px 4px 0px #1a0e00',
+                borderRadius: '999px',
               }}
             >
               <Zap className="w-8 h-8 text-[#1a0e00]" />
@@ -232,7 +248,7 @@ export function PhotoboothSection() {
       </div>
 
       {/* Bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
     </section>
   )
 }

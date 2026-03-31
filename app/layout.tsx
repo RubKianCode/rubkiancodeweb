@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Prompt } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -41,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="th">
       <body className={`${inter.variable} ${prompt.variable} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

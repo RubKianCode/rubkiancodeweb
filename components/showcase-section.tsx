@@ -3,39 +3,43 @@
 import { ExternalLink, Monitor } from "lucide-react"
 import Image from "next/image"
 import { RetroNoise } from "@/components/retro-noise"
-
-const projects = [
-  {
-    title: "ระบบจัดการหลังบ้าน",
-    category: "POS System",
-    description: "ระบบจัดการหลังบ้าน และรายงานยอดที่ได้",
-    tech: ["React", "Node.js", "PostgreSQL"],
-    ch: "CH.1",
-  },
-  {
-    title: "แอปจองคิว",
-    category: "Mobile App",
-    description: "แอปพลิเคชันจองคิวสำหรับคลินิกและร้านค้า",
-    tech: ["Flutter", "Firebase", "Google Maps"],
-    ch: "CH.2",
-  },
-  {
-    title: "E-commerce Platform",
-    category: "Web Application",
-    description: "แพลตฟอร์มขายสินค้าออนไลน์ครบวงจร",
-    tech: ["Next.js", "Stripe", "AWS"],
-    ch: "CH.3",
-  },
-  {
-    title: "HR Management System",
-    category: "Enterprise",
-    description: "ระบบบริหารทรัพยากรบุคคลสำหรับองค์กร",
-    tech: ["Vue.js", "Laravel", "MySQL"],
-    ch: "CH.4",
-  },
-]
+import { CodeBg } from "@/components/code-bg"
+import { useLanguage } from "@/lib/language-context"
 
 export function ShowcaseSection() {
+  const { t } = useLanguage()
+
+  const projects = [
+    {
+      title: t("ระบบจัดการหลังบ้าน", "Back-office Management System"),
+      category: "POS System",
+      description: t("ระบบจัดการหลังบ้าน และรายงานยอดที่ได้", "Back-office management system and sales reporting"),
+      tech: ["React", "Node.js", "PostgreSQL"],
+      ch: "CH.1",
+    },
+    {
+      title: t("แอปจองคิว", "Queue Booking App"),
+      category: "Mobile App",
+      description: t("แอปพลิเคชันจองคิวสำหรับคลินิกและร้านค้า", "Queue booking application for clinics and shops"),
+      tech: ["Flutter", "Firebase", "Google Maps"],
+      ch: "CH.2",
+    },
+    {
+      title: "E-commerce Platform",
+      category: "Web Application",
+      description: t("แพลตฟอร์มขายสินค้าออนไลน์ครบวงจร", "Full-featured online sales platform"),
+      tech: ["Next.js", "Stripe", "AWS"],
+      ch: "CH.3",
+    },
+    {
+      title: "HR Management System",
+      category: "Enterprise",
+      description: t("ระบบบริหารทรัพยากรบุคคลสำหรับองค์กร", "Human resource management system for enterprises"),
+      tech: ["Vue.js", "Laravel", "MySQL"],
+      ch: "CH.4",
+    },
+  ]
+
   return (
     <section id="products" className="relative py-24 overflow-hidden retro-scanlines">
 
@@ -49,30 +53,35 @@ export function ShowcaseSection() {
         style={{ zIndex: 0 }}
       />
 
-      {/* Overlays */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.30)' }} />
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.45)' }} />
+      {/* Overlays — reduced for code BG */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.15)' }} />
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.28)' }} />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.045} className="z-[2]" blendMode="overlay" />
+      <RetroNoise opacity={0.03} className="z-[2]" blendMode="overlay" />
+
+      {/* Bouncing Code Symbols */}
+      <CodeBg opacity={0.85} particleCount={40} className="z-[3]" />
 
       {/* Vignette */}
-      <div className="absolute inset-0 z-[3] pointer-events-none"
+      <div className="absolute inset-0 z-[4] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(20,8,0,0.45) 100%)' }} />
 
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+      <div className="absolute top-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
 
-      <div className="relative z-[5] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-[6] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="text-center mb-16">
           <div
             className="inline-flex items-center gap-2 mb-6 px-5 py-2"
-            style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00' }}
+            style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">Software Showcase</span>
+            <span className="text-sm font-black text-[#1a0e00] tracking-[0.2em] uppercase">
+              {t("ผลงานซอฟต์แวร์", "Software Showcase")}
+            </span>
           </div>
 
           <h2
@@ -83,10 +92,10 @@ export function ShowcaseSection() {
               fontFamily: 'var(--font-prompt), Prompt, sans-serif',
             }}
           >
-            ผลงานของเรา
+            {t("ผลงานของเรา", "Our Portfolio")}
           </h2>
           <p className="text-[#1a0e00] font-bold text-lg max-w-2xl mx-auto">
-            ตัวอย่างโปรเจกต์ที่เราได้พัฒนาให้กับลูกค้า
+            {t("ตัวอย่างโปรเจกต์ที่เราได้พัฒนาให้กับลูกค้า", "Sample projects we have developed for our clients")}
           </p>
         </div>
 
@@ -100,6 +109,8 @@ export function ShowcaseSection() {
                 background: 'rgba(26,14,0,0.88)',
                 border: '3px solid #f3f84a',
                 boxShadow: '5px 5px 0px #7a5010',
+                borderRadius: '20px',
+                overflow: 'hidden',
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '8px 8px 0px #7a5010' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #7a5010' }}
@@ -113,7 +124,7 @@ export function ShowcaseSection() {
                   borderBottom: '3px solid #f3f84a',
                 }}
               >
-                {/* CRT scanlines in screen */}
+                {/* CRT scanlines */}
                 <div className="absolute inset-0 z-10 pointer-events-none"
                   style={{
                     background: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px)',
@@ -142,7 +153,7 @@ export function ShowcaseSection() {
                 >
                   <div className="flex items-center gap-2 font-black uppercase text-[#1a0e00]">
                     <ExternalLink className="w-6 h-6" />
-                    <span>ดูรายละเอียด</span>
+                    <span>{t("ดูรายละเอียด", "View Details")}</span>
                   </div>
                 </div>
               </div>
@@ -152,7 +163,7 @@ export function ShowcaseSection() {
                 <div className="flex items-center justify-between mb-3">
                   <span
                     className="text-xs font-black uppercase tracking-wider px-3 py-1"
-                    style={{ background: '#93c8cf', color: '#1a0e00', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00' }}
+                    style={{ background: '#93c8cf', color: '#1a0e00', border: '2px solid #1a0e00', boxShadow: '2px 2px 0 #1a0e00', borderRadius: '999px' }}
                   >
                     {project.category}
                   </span>
@@ -180,6 +191,7 @@ export function ShowcaseSection() {
                         border: '2px solid #f3f84a',
                         color: '#f3f84a',
                         background: 'rgba(243,248,74,0.08)',
+                        borderRadius: '999px',
                       }}
                     >
                       {tech}
@@ -193,7 +205,7 @@ export function ShowcaseSection() {
       </div>
 
       {/* Bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[4]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
     </section>
   )
 }

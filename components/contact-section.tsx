@@ -3,43 +3,47 @@
 import { Mail, Phone, MapPin, Send, MessageCircle, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { RetroNoise } from "@/components/retro-noise"
-
-const contactInfo = [
-  {
-    icon: MessageCircle,
-    label: "LINE Official",
-    value: "@rubkiancode",
-    sub: "ตอบกลับภายใน 1 ชม.",
-    href: "https://line.me/ti/p/@rubkiancode",
-    highlight: true,
-  },
-  {
-    icon: Phone,
-    label: "โทรศัพท์",
-    value: "02-XXX-XXXX",
-    sub: "จันทร์–เสาร์ 9:00–18:00",
-    href: "tel:02-XXX-XXXX",
-    highlight: false,
-  },
-  {
-    icon: Mail,
-    label: "อีเมล",
-    value: "contact@rubkaincode.com",
-    sub: "ตอบกลับภายใน 24 ชม.",
-    href: "mailto:contact@rubkaincode.com",
-    highlight: false,
-  },
-  {
-    icon: MapPin,
-    label: "ที่อยู่",
-    value: "กรุงเทพมหานคร",
-    sub: "ให้บริการทั่วประเทศ",
-    href: "#",
-    highlight: false,
-  },
-]
+import { CodeBg } from "@/components/code-bg"
+import { useLanguage } from "@/lib/language-context"
 
 export function ContactSection() {
+  const { t } = useLanguage()
+
+  const contactInfo = [
+    {
+      icon: MessageCircle,
+      label: "LINE Official",
+      value: "@rubkiancode",
+      sub: t("ตอบกลับภายใน 1 ชม.", "Reply within 1 hour"),
+      href: "https://line.me/ti/p/@rubkiancode",
+      highlight: true,
+    },
+    {
+      icon: Phone,
+      label: t("โทรศัพท์", "Phone"),
+      value: "02-XXX-XXXX",
+      sub: t("จันทร์–เสาร์ 9:00–18:00", "Mon–Sat 9:00–18:00"),
+      href: "tel:02-XXX-XXXX",
+      highlight: false,
+    },
+    {
+      icon: Mail,
+      label: t("อีเมล", "Email"),
+      value: "contact@rubkaincode.com",
+      sub: t("ตอบกลับภายใน 24 ชม.", "Reply within 24 hours"),
+      href: "mailto:contact@rubkaincode.com",
+      highlight: false,
+    },
+    {
+      icon: MapPin,
+      label: t("ที่อยู่", "Address"),
+      value: t("กรุงเทพมหานคร", "Bangkok"),
+      sub: t("ให้บริการทั่วประเทศ", "Nationwide service"),
+      href: "#",
+      highlight: false,
+    },
+  ]
+
   return (
     <section id="contact" className="relative py-28 overflow-hidden retro-scanlines">
 
@@ -56,7 +60,10 @@ export function ContactSection() {
       />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.04} className="z-[2]" blendMode="screen" />
+      <RetroNoise opacity={0.02} className="z-[2]" blendMode="screen" />
+
+      {/* Bouncing Code Symbols */}
+      <CodeBg opacity={0.75} particleCount={35} className="z-[3]" />
 
       {/* Corner glow accents */}
       <div className="absolute top-0 left-0 w-64 h-64 pointer-events-none z-[1]"
@@ -73,13 +80,15 @@ export function ContactSection() {
         <div className="text-center mb-20">
           <div
             className="inline-flex items-center gap-2.5 mb-7 px-5 py-2"
-            style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #7a5010' }}
+            style={{ background: '#f3f84a', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #7a5010', borderRadius: '999px' }}
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
-            <span className="text-xs font-black tracking-[0.2em] uppercase text-[#1a0e00]">Get In Touch</span>
+            <span className="text-xs font-black tracking-[0.2em] uppercase text-[#1a0e00]">
+              {t("ติดต่อเรา", "Get In Touch")}
+            </span>
           </div>
 
           <h2
@@ -91,14 +100,14 @@ export function ContactSection() {
               WebkitTextStroke: '1px #c8900a',
             }}
           >
-            พร้อมให้คุณ
+            {t("พร้อมให้คุณ", "Ready For")}
             <br />
             <span style={{ color: '#93c8cf', textShadow: '5px 5px 0px #2a5a60', WebkitTextStroke: '1px #1a5a60' }}>
-              ติดต่อเราได้เลย
+              {t("ติดต่อเราได้เลย", "You To Reach Us")}
             </span>
           </h2>
           <p className="text-lg max-w-xl mx-auto leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            ทีมงานผู้เชี่ยวชาญพร้อมรับฟังและให้คำแนะนำอย่างตรงจุด
+            {t("ทีมงานผู้เชี่ยวชาญพร้อมรับฟังและให้คำแนะนำอย่างตรงจุด", "Our team of experts is ready to listen and provide targeted advice")}
           </p>
         </div>
 
@@ -115,6 +124,7 @@ export function ContactSection() {
                   background: item.highlight ? 'rgba(243,248,74,0.12)' : 'rgba(255,255,255,0.04)',
                   border: item.highlight ? '2px solid #f3f84a' : '2px solid rgba(255,255,255,0.12)',
                   boxShadow: item.highlight ? '4px 4px 0px #7a5010' : '4px 4px 0px rgba(255,255,255,0.05)',
+                  borderRadius: '16px',
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.border = '2px solid #f3f84a'
@@ -132,6 +142,7 @@ export function ContactSection() {
                     background: item.highlight ? '#f3f84a' : 'rgba(255,255,255,0.08)',
                     border: `2px solid ${item.highlight ? '#1a0e00' : 'rgba(255,255,255,0.2)'}`,
                     boxShadow: item.highlight ? '3px 3px 0 #7a5010' : 'none',
+                    borderRadius: '12px',
                   }}
                 >
                   <item.icon className="w-5 h-5" style={{ color: item.highlight ? '#1a0e00' : 'rgba(255,255,255,0.5)' }} />
@@ -157,6 +168,7 @@ export function ContactSection() {
                 background: '#f3f84a',
                 border: '3px solid #1a0e00',
                 boxShadow: '5px 5px 0px #7a5010',
+                borderRadius: '20px',
               }}
               onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '8px 8px 0px #7a5010' }}
@@ -164,13 +176,13 @@ export function ContactSection() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-mono font-bold mb-1 uppercase tracking-wider text-[#7a5010]">// ช่องทางแนะนำ</div>
-                  <div className="text-[#1a0e00] font-black text-xl uppercase">คุยผ่าน LINE เลย!</div>
-                  <div className="text-sm mt-1 font-bold text-[#3d2000]">เร็ว ง่าย ได้คำตอบทันที</div>
+                  <div className="text-xs font-mono font-bold mb-1 uppercase tracking-wider text-[#7a5010]">// {t("ช่องทางแนะนำ", "Recommended Channel")}</div>
+                  <div className="text-[#1a0e00] font-black text-xl uppercase">{t("คุยผ่าน LINE เลย!", "Chat via LINE Now!")}</div>
+                  <div className="text-sm mt-1 font-bold text-[#3d2000]">{t("เร็ว ง่าย ได้คำตอบทันที", "Fast, Easy, Instant Reply")}</div>
                 </div>
                 <div
                   className="w-14 h-14 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                  style={{ background: '#1a0e00', border: '2px solid #1a0e00' }}
+                  style={{ background: '#1a0e00', border: '2px solid #1a0e00', borderRadius: '14px' }}
                 >
                   <MessageCircle className="w-7 h-7 text-[#f3f84a]" />
                 </div>
@@ -186,9 +198,10 @@ export function ContactSection() {
                 background: 'rgba(255,255,255,0.03)',
                 border: '3px solid #f3f84a',
                 boxShadow: '6px 6px 0px #7a5010',
+                borderRadius: '24px',
               }}
             >
-              {/* Form Header Bar — like a retro window title */}
+              {/* Form Header Bar */}
               <div
                 className="px-6 py-4 flex items-center justify-between"
                 style={{ background: '#93c8cf', borderBottom: '3px solid #f3f84a' }}
@@ -213,17 +226,17 @@ export function ContactSection() {
                   className="text-2xl font-black uppercase mb-2"
                   style={{ color: '#f3f84a', textShadow: '3px 3px 0px #7a5010' }}
                 >
-                  ส่งข้อความถึงเรา
+                  {t("ส่งข้อความถึงเรา", "Send Us a Message")}
                 </h3>
                 <p className="text-sm mb-8 font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                  กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด
+                  {t("กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด", "Fill in the details below and our team will get back to you shortly")}
                 </p>
 
                 <form className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {[
-                      { label: "ชื่อ-นามสกุล", placeholder: "กรอกชื่อของคุณ", type: "text" },
-                      { label: "อีเมล", placeholder: "email@example.com", type: "email" },
+                      { label: t("ชื่อ-นามสกุล", "Full Name"), placeholder: t("กรอกชื่อของคุณ", "Enter your name"), type: "text" },
+                      { label: t("อีเมล", "Email"), placeholder: "email@example.com", type: "email" },
                     ].map((field, i) => (
                       <div key={i} className="space-y-2">
                         <label
@@ -240,6 +253,7 @@ export function ContactSection() {
                             background: 'rgba(255,255,255,0.05)',
                             border: '2px solid rgba(243,248,74,0.3)',
                             caretColor: '#f3f84a',
+                            borderRadius: '12px',
                           }}
                           onFocus={e => {
                             e.currentTarget.style.borderColor = '#f3f84a'
@@ -258,12 +272,12 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <label className="block text-xs font-black tracking-[0.2em] uppercase" style={{ color: '#f3f84a' }}>
-                      หัวข้อ
+                      {t("หัวข้อ", "Subject")}
                     </label>
                     <input
-                      placeholder="เช่น สอบถามราคาเช่าระบบ Photobooth"
+                      placeholder={t("เช่น สอบถามราคาเช่าระบบ Photobooth", "e.g. Photobooth System Rental Inquiry")}
                       className="w-full px-4 py-3.5 text-sm text-white font-medium outline-none transition-all duration-200"
-                      style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a' }}
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a', borderRadius: '12px' }}
                       onFocus={e => { e.currentTarget.style.borderColor = '#f3f84a'; e.currentTarget.style.background = 'rgba(243,248,74,0.08)'; e.currentTarget.style.boxShadow = '3px 3px 0 #7a5010' }}
                       onBlur={e => { e.currentTarget.style.borderColor = 'rgba(243,248,74,0.3)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.boxShadow = 'none' }}
                     />
@@ -271,13 +285,13 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <label className="block text-xs font-black tracking-[0.2em] uppercase" style={{ color: '#f3f84a' }}>
-                      รายละเอียด
+                      {t("รายละเอียด", "Details")}
                     </label>
                     <textarea
-                      placeholder="อธิบายความต้องการของคุณ..."
+                      placeholder={t("อธิบายความต้องการของคุณ...", "Describe your requirements...")}
                       rows={5}
                       className="w-full px-4 py-3.5 text-sm text-white font-medium outline-none transition-all duration-200 resize-none"
-                      style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a' }}
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a', borderRadius: '12px' }}
                       onFocus={e => { e.currentTarget.style.borderColor = '#f3f84a'; e.currentTarget.style.background = 'rgba(243,248,74,0.08)'; e.currentTarget.style.boxShadow = '3px 3px 0 #7a5010' }}
                       onBlur={e => { e.currentTarget.style.borderColor = 'rgba(243,248,74,0.3)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.boxShadow = 'none' }}
                     />
@@ -291,12 +305,13 @@ export function ContactSection() {
                       color: '#1a0e00',
                       border: '3px solid #1a0e00',
                       boxShadow: '5px 5px 0px #7a5010',
+                      borderRadius: '999px',
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #7a5010' }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #7a5010' }}
                   >
                     <Send className="w-5 h-5" />
-                    ส่งข้อความเลย
+                    {t("ส่งข้อความเลย", "Send Message")}
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </form>
