@@ -2,53 +2,55 @@
 
 import Image from "next/image"
 import { Code, Cloud, MessageSquare, Smartphone, Globe, Database, CheckCircle2 } from "lucide-react"
-import { RetroNoise } from "@/components/retro-noise"
 import { CodeBg } from "@/components/code-bg"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, useLangTypography } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 export function ServicesSection() {
-  const { t, lang } = useLanguage()
+  const { lang } = useLanguage()
+  const typo = useLangTypography()
+  const t = useTranslations("services")
 
   const services = [
     {
       icon: Code,
-      title: t("พัฒนาซอฟต์แวร์", "Software Development"),
-      description: t("ออกแบบและพัฒนาซอฟต์แวร์ตามความต้องการ ทั้ง Web, Mobile และ Desktop Application", "Custom software design and development for Web, Mobile and Desktop Applications"),
-      features: [t("เว็บแอปพลิเคชัน", "Web Application"), t("แอปมือถือ", "Mobile App"), t("ซอฟต์แวร์เดสก์ท็อป", "Desktop Software")],
+      title: t("dev_title"),
+      description: t("dev_desc"),
+      features: [t("dev_f0"), t("dev_f1"), t("dev_f2")],
       tag: "01",
     },
     {
       icon: Cloud,
-      title: t("ให้เช่าซอฟต์แวร์", "Software Rental"),
-      description: t("บริการให้เช่าซอฟต์แวร์สำเร็จรูป พร้อมใช้งาน ราคาประหยัด เหมาะกับทุกธุรกิจ", "Ready-to-use software rental service, affordable and suitable for all businesses"),
-      features: [t("ระบบ POS", "POS System"), t("ระบบจัดการสต็อก", "Inventory System"), t("ระบบ CRM", "CRM System")],
+      title: t("rental_title"),
+      description: t("rental_desc"),
+      features: [t("rental_f0"), t("rental_f1"), t("rental_f2")],
       tag: "02",
     },
     {
       icon: MessageSquare,
-      title: t("ให้คำปรึกษา", "IT Consulting"),
-      description: t("ให้คำปรึกษาด้าน IT Solution วางแผนระบบ และแนะนำเทคโนโลยีที่เหมาะสม", "IT Solution consulting, system planning, and technology recommendation"),
-      features: [t("วางแผนระบบ", "System Planning"), "Digital Transform", "IT Consulting"],
+      title: t("consult_title"),
+      description: t("consult_desc"),
+      features: [t("consult_f0"), "Digital Transform", "IT Consulting"],
       tag: "03",
     },
     {
       icon: Smartphone,
       title: "Mobile App",
-      description: t("พัฒนาแอปพลิเคชันมือถือ ทั้ง iOS และ Android ด้วยเทคโนโลยีล่าสุด", "Mobile app development for both iOS and Android using the latest technology"),
+      description: t("mobile_desc"),
       features: ["iOS App", "Android App", "Cross-platform"],
       tag: "04",
     },
     {
       icon: Globe,
-      title: t("เว็บไซต์", "Website"),
-      description: t("ออกแบบและพัฒนาเว็บไซต์ทุกรูปแบบ ตั้งแต่ Landing Page ไปจนถึง E-commerce", "Design and develop all types of websites, from Landing Pages to E-commerce"),
+      title: t("web_title"),
+      description: t("web_desc"),
       features: ["Corporate Website", "E-commerce", "Landing Page"],
       tag: "05",
     },
     {
       icon: Database,
-      title: t("ระบบฐานข้อมูล", "Database System"),
-      description: t("ออกแบบและพัฒนาระบบฐานข้อมูล พร้อมดูแลรักษาและสำรองข้อมูล", "Database design, development, maintenance and backup solutions"),
+      title: t("db_title"),
+      description: t("db_desc"),
       features: ["Database Design", "Data Migration", "Backup System"],
       tag: "06",
     },
@@ -72,7 +74,7 @@ export function ServicesSection() {
       <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(243, 248, 74, 0.06)' }} />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.03} className="z-[2]" blendMode="overlay" />
+      
 
       {/* Bouncing Code Symbols */}
       <CodeBg opacity={0.85} particleCount={45} className="z-[3]" />
@@ -94,30 +96,31 @@ export function ServicesSection() {
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <span
-              className="text-sm font-black text-[#1a0e00] uppercase"
-              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+              className="font-black text-[#1a0e00] uppercase"
+              style={{ letterSpacing: typo.trackingLabel, fontSize: typo.sectionBadge }}
             >
-              {t("บริการของเรา", "Our Services")}
+              {t("badge")}
             </span>
           </div>
 
           <h2
-            className="text-5xl sm:text-6xl font-black uppercase mb-6"
+            className="font-black uppercase mb-6"
             style={{
+              fontSize: typo.sectionH2,
               color: '#f3f84a',
               textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
-              fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+              fontFamily: typo.fontFamily,
               WebkitTextStroke: '1px #c8900a',
-              letterSpacing: lang === 'th' ? '0.05em' : '0',
+              letterSpacing: typo.trackingSectionH2,
             }}
           >
-            {t("บริการของเรา", "Our Services")}
+            {t("heading")}
           </h2>
           <p
-            className="text-white font-bold text-lg max-w-2xl mx-auto"
-            style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+            className="font-bold max-w-2xl mx-auto"
+            style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, textShadow: '1px 1px 0px rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
           >
-            {t("เราให้บริการด้านซอฟต์แวร์อย่างครบวงจร ตั้งแต่การให้คำปรึกษา ออกแบบ พัฒนา จนถึงดูแลหลังการขาย", "We provide comprehensive software services from consulting, design, development to after-sales support")}
+            {t("description")}
           </p>
         </div>
 
@@ -156,22 +159,22 @@ export function ServicesSection() {
               </div>
 
               <h3
-                className="text-xl font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
-                style={{ color: '#f3f84a', textShadow: '2px 2px 0px #7a5010', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                className="font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
+                style={{ fontSize: typo.sectionCardTitle, color: '#f3f84a', textShadow: '2px 2px 0px #7a5010', letterSpacing: typo.trackingLabel }}
               >
                 {service.title}
               </h3>
               <p
-                className="text-white/70 mb-5 text-sm leading-relaxed font-medium"
-                style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+                className="text-white/70 mb-5 leading-relaxed font-medium"
+                style={{ fontSize: typo.sectionCardBody, lineHeight: typo.sectionLineHeight, letterSpacing: typo.trackingBody }}
               >
                 {service.description}
               </p>
               <ul className="space-y-1.5">
                 {service.features.map((feature, fi) => (
-                  <li key={fi} className="flex items-center gap-2 text-sm">
+                  <li key={fi} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: '#93c8cf' }} />
-                    <span className="font-mono font-bold text-white/80">{feature}</span>
+                    <span className="font-mono font-bold text-white/80" style={{ fontSize: typo.sectionCardBody }}>{feature}</span>
                   </li>
                 ))}
               </ul>

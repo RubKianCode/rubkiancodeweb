@@ -2,39 +2,41 @@
 
 import { ExternalLink, Monitor } from "lucide-react"
 import Image from "next/image"
-import { RetroNoise } from "@/components/retro-noise"
 import { CodeBg } from "@/components/code-bg"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, useLangTypography } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 export function ShowcaseSection() {
-  const { t, lang } = useLanguage()
+  const { lang } = useLanguage()
+  const typo = useLangTypography()
+  const t = useTranslations("showcase")
 
   const projects = [
     {
-      title: t("ระบบจัดการหลังบ้าน", "Back-office Management System"),
+      title: t("project0_title"),
       category: "POS System",
-      description: t("ระบบจัดการหลังบ้าน และรายงานยอดที่ได้", "Back-office management system and sales reporting"),
+      description: t("project0_desc"),
       tech: ["React", "Node.js", "PostgreSQL"],
       ch: "CH.1",
     },
     {
-      title: t("แอปจองคิว", "Queue Booking App"),
+      title: t("project1_title"),
       category: "Mobile App",
-      description: t("แอปพลิเคชันจองคิวสำหรับคลินิกและร้านค้า", "Queue booking application for clinics and shops"),
+      description: t("project1_desc"),
       tech: ["Flutter", "Firebase", "Google Maps"],
       ch: "CH.2",
     },
     {
       title: "E-commerce Platform",
       category: "Web Application",
-      description: t("แพลตฟอร์มขายสินค้าออนไลน์ครบวงจร", "Full-featured online sales platform"),
+      description: t("project2_desc"),
       tech: ["Next.js", "Stripe", "AWS"],
       ch: "CH.3",
     },
     {
       title: "HR Management System",
       category: "Enterprise",
-      description: t("ระบบบริหารทรัพยากรบุคคลสำหรับองค์กร", "Human resource management system for enterprises"),
+      description: t("project3_desc"),
       tech: ["Vue.js", "Laravel", "MySQL"],
       ch: "CH.4",
     },
@@ -58,7 +60,7 @@ export function ShowcaseSection() {
       <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.28)' }} />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.03} className="z-[2]" blendMode="overlay" />
+      
 
       {/* Bouncing Code Symbols */}
       <CodeBg opacity={0.85} particleCount={40} className="z-[3]" />
@@ -80,29 +82,30 @@ export function ShowcaseSection() {
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <span
-              className="text-sm font-black text-[#1a0e00] uppercase"
-              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+              className="font-black text-[#1a0e00] uppercase"
+              style={{ letterSpacing: typo.trackingLabel, fontSize: typo.sectionBadge }}
             >
-              {t("ผลงานซอฟต์แวร์", "Software Showcase")}
+              {t("badge")}
             </span>
           </div>
 
           <h2
-            className="text-5xl sm:text-6xl font-black uppercase mb-6"
+            className="font-black uppercase mb-6"
             style={{
+              fontSize: typo.sectionH2,
               color: '#1a0e00',
               textShadow: '4px 4px 0px #7a5010',
-              fontFamily: 'var(--font-prompt), Prompt, sans-serif',
-              letterSpacing: lang === 'th' ? '0.05em' : '0',
+              fontFamily: typo.fontFamily,
+              letterSpacing: typo.trackingSectionH2,
             }}
           >
-            {t("ผลงานของเรา", "Our Portfolio")}
+            {t("heading")}
           </h2>
           <p
-            className="text-[#1a0e00] font-bold text-lg max-w-2xl mx-auto"
-            style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+            className="font-bold max-w-2xl mx-auto"
+            style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, letterSpacing: typo.trackingBody }}
           >
-            {t("ตัวอย่างโปรเจกต์ที่เราได้พัฒนาให้กับลูกค้า", "Sample projects we have developed for our clients")}
+            {t("description")}
           </p>
         </div>
 
@@ -160,10 +163,10 @@ export function ShowcaseSection() {
                 >
                   <div
                     className="flex items-center gap-2 font-black uppercase text-[#1a0e00]"
-                    style={{ letterSpacing: lang === 'th' ? '0.05em' : '0.025em' }}
+                    style={{ letterSpacing: typo.trackingButton }}
                   >
                     <ExternalLink className="w-6 h-6" />
-                    <span>{t("ดูรายละเอียด", "View Details")}</span>
+                    <span>{t("view_details")}</span>
                   </div>
                 </div>
               </div>
@@ -190,14 +193,14 @@ export function ShowcaseSection() {
                 </div>
 
                 <h3
-                  className="text-xl font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
-                  style={{ color: '#ffffff', textShadow: '1px 1px 0 rgba(0,0,0,0.5)', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                  className="font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
+                  style={{ fontSize: typo.sectionCardTitle, color: '#ffffff', textShadow: '1px 1px 0 rgba(0,0,0,0.5)', letterSpacing: typo.trackingSectionH2 }}
                 >
                   {project.title}
                 </h3>
                 <p
-                  className="text-white/60 text-sm mb-4 leading-relaxed font-medium"
-                  style={{ letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+                  className="text-white/60 mb-4 leading-relaxed font-medium"
+                  style={{ fontSize: typo.sectionCardBody, lineHeight: typo.sectionLineHeight, letterSpacing: typo.trackingBody }}
                 >
                   {project.description}
                 </p>
