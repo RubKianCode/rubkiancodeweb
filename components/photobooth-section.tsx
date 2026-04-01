@@ -2,20 +2,22 @@
 
 import { Camera, Heart, Sparkles, Star, CheckCircle2, Zap } from "lucide-react"
 import Image from "next/image"
-import { RetroNoise } from "@/components/retro-noise"
 import { CodeBg } from "@/components/code-bg"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, useLangTypography } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 export function PhotoboothSection() {
-  const { t, lang } = useLanguage()
+  const { lang } = useLanguage()
+  const typo = useLangTypography()
+  const t = useTranslations("photobooth")
 
   const features = [
-    t("ถ่ายรูปสไตล์เกาหลี 4 ช่อง", "Korean-style 4-panel photo strips"),
-    t("Filter สวยๆ มากกว่า 50 แบบ", "50+ beautiful filters"),
-    t("พิมพ์รูปทันที รูปสวยคมชัด", "Instant high-quality photo printing"),
-    t("Frame น่ารักๆ อัพเดทใหม่ทุกเดือน", "Cute frames updated monthly"),
-    t("รองรับงาน Event ทุกขนาด", "Supports events of all sizes"),
-    t("ทีมงานดูแลตลอดงาน", "On-site support throughout the event"),
+    t("feature0"),
+    t("feature1"),
+    t("feature2"),
+    t("feature3"),
+    t("feature4"),
+    t("feature5"),
   ]
 
   return (
@@ -36,7 +38,7 @@ export function PhotoboothSection() {
       <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.30)' }} />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.03} className="z-[2]" blendMode="overlay" />
+      
 
       {/* Bouncing Code Symbols */}
       <CodeBg opacity={0.8} particleCount={40} className="z-[3]" />
@@ -64,40 +66,38 @@ export function PhotoboothSection() {
               </span>
               <Camera className="w-4 h-4 text-[#1a0e00]" />
               <span
-                className="text-sm font-black text-[#1a0e00] uppercase"
-                style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                className="font-black text-[#1a0e00] uppercase"
+                style={{ letterSpacing: typo.trackingLabel, fontSize: typo.sectionBadge }}
               >
-                {t("โฟโต้บูธสไตล์เกาหลี", "Korean Style Photobooth")}
+                {t("badge")}
               </span>
             </div>
 
             <h2
-              className="text-4xl sm:text-5xl md:text-6xl font-black uppercase mb-6 leading-tight"
+              className="font-black uppercase mb-6 leading-tight"
               style={{
+                fontSize: typo.sectionH2,
                 color: '#f3f84a',
                 textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
-                fontFamily: 'var(--font-prompt), Prompt, sans-serif',
+                fontFamily: typo.fontFamily,
                 WebkitTextStroke: '1px #c8900a',
-                letterSpacing: lang === 'th' ? '0.05em' : '0',
+                letterSpacing: typo.trackingSectionH2,
               }}
             >
-              {t("ให้เช่า", "Rent")}
+              {t("heading_rent")}
               <br />
               <span style={{ color: '#93c8cf', textShadow: '5px 5px 0px #2a5a60', WebkitTextStroke: '1px #1a5a60' }}>Photobooth</span>
               <br />
               <span style={{ color: '#ffffff', textShadow: '4px 4px 0px #3d2000', WebkitTextStroke: '0px transparent' }}>
-                {t("สไตล์เกาหลี", "Korean Style")}
+                {t("heading_style")}
               </span>
             </h2>
 
             <p
-              className="text-lg text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
-              style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+              className="text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
+              style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
             >
-              {t(
-                "บริการให้เช่าตู้ถ่ายรูปสไตล์เกาหลี พร้อมโปรแกรมที่พัฒนาเอง เหมาะสำหรับงาน Event, งานแต่งงาน, งานเปิดตัวสินค้า และอื่นๆ",
-                "Korean-style photo booth rental service with our own custom software. Ideal for Events, Weddings, Product Launches, and more."
-              )}
+              {t("description")}
             </p>
 
             {/* Features */}
@@ -112,7 +112,7 @@ export function PhotoboothSection() {
                   </div>
                   <span
                     className="text-white font-bold text-sm"
-                    style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}
+                    style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
                   >
                     {feature}
                   </span>
@@ -123,37 +123,41 @@ export function PhotoboothSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                className="h-14 px-8 text-lg font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                className="font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                 style={{
+                  padding: typo.sectionBtnPadding,
                   background: '#f3f84a',
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
                   borderRadius: '999px',
-                  letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
+                  fontSize: typo.sectionBadge,
+                  letterSpacing: typo.trackingButton,
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
                 onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
               >
                 <Heart className="inline mr-2 w-5 h-5" />
-                {t("จองเช่า Photobooth", "Book Photobooth")}
+                {t("cta_book")}
               </button>
               <button
-                className="h-14 px-8 text-lg font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                className="font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                 style={{
+                  padding: typo.sectionBtnPadding,
                   background: '#93c8cf',
                   color: '#1a0e00',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
                   borderRadius: '999px',
-                  letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
+                  fontSize: typo.sectionBadge,
+                  letterSpacing: typo.trackingButton,
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
               >
                 <Sparkles className="inline mr-2 w-5 h-5" />
-                {t("ดูตัวอย่างรูป", "See Sample Photos")}
+                {t("cta_sample")}
               </button>
             </div>
           </div>

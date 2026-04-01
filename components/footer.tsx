@@ -2,24 +2,25 @@
 
 import Link from "next/link"
 import { MessageCircle, Mail, Phone, MapPin } from "lucide-react"
-import { RetroNoise } from "@/components/retro-noise"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, useLangTypography } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 export function Footer() {
-  const { t } = useLanguage()
+  const tNavbar = useTranslations("navbar")
+  const tFooter = useTranslations("footer")
 
   const navLinks = [
-    { href: "#services", label: t("รับผลิตซอฟต์แวร์", "Software Development") },
-    { href: "#products", label: t("เช่าซอฟต์แวร์", "Software Rental") },
-    { href: "#photobooth", label: t("เช่า Photobooth", "Photobooth Rental") },
-    { href: "#contact", label: t("ติดต่อเรา", "Contact Us") },
+    { href: "#services", label: tNavbar("nav_software") },
+    { href: "#products", label: tNavbar("nav_rental") },
+    { href: "#photobooth", label: tNavbar("nav_photobooth") },
+    { href: "#contact", label: tNavbar("nav_contact") },
   ]
 
   const contactLinks = [
     { icon: Mail, label: "contact@rubkaincode.com", href: "mailto:contact@rubkaincode.com" },
     { icon: Phone, label: "02-XXX-XXXX", href: "tel:02-XXX-XXXX" },
     { icon: MessageCircle, label: "@rubkiancode", href: "https://line.me/ti/p/@rubkiancode" },
-    { icon: MapPin, label: t("กรุงเทพมหานคร", "Bangkok"), href: "#" },
+    { icon: MapPin, label: tFooter("bangkok"), href: "#" },
   ]
 
   return (
@@ -38,7 +39,7 @@ export function Footer() {
       />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.03} className="z-[2]" blendMode="screen" />
+      
 
       {/* Bottom glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[150px] pointer-events-none z-[1]"
@@ -59,12 +60,12 @@ export function Footer() {
                   fontFamily: 'var(--font-prompt), Prompt, sans-serif',
                 }}
               >
-                {t("โฟโต้บูธ ประเทศไทย", "Photobooth Thailand")}
+                {tFooter("brand")}
               </span>
               <span className="font-mono text-xl font-black" style={{ color: '#f3f84a' }}>】</span>
             </Link>
             <p className="font-medium text-sm leading-relaxed mb-5 max-w-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              {t("ผู้เชี่ยวชาญด้านระบบซอฟต์แวร์โฟโต้บูธ ให้บริการครบวงจร ทั้งผลิต ให้เช่า และให้คำปรึกษา", "Photobooth software specialists offering full-service production, rental and consulting")}
+              {tFooter("description")}
             </p>
 
             {/* Status badge */}
@@ -82,7 +83,7 @@ export function Footer() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
               </span>
               <span className="text-xs font-mono font-bold" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                {t("ระบบออนไลน์ 24/7", "System Online — 24/7")}
+                {tFooter("online_status")}
               </span>
             </div>
           </div>
@@ -93,7 +94,7 @@ export function Footer() {
               className="text-xs font-mono font-black uppercase tracking-[0.3em] mb-5"
               style={{ color: '#f3f84a' }}
             >
-              // {t("บริการ", "Services")}
+              // {tFooter("services_heading")}
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -119,7 +120,7 @@ export function Footer() {
               className="text-xs font-mono font-black uppercase tracking-[0.3em] mb-5"
               style={{ color: '#f3f84a' }}
             >
-              // {t("ติดต่อ", "Contact")}
+              // {tFooter("contact_heading")}
             </h4>
             <ul className="space-y-3">
               {contactLinks.map((item, index) => (
@@ -146,7 +147,7 @@ export function Footer() {
           style={{ borderTop: '2px solid rgba(243,248,74,0.15)' }}
         >
           <p className="text-xs font-mono font-bold" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            © 2026 {t("ขายระบบซอฟแวร์โฟโต้บูธ ประเทศไทย", "Photobooth Software Thailand")} — {t("สงวนลิขสิทธิ์", "All rights reserved")}.
+            © 2026 {tFooter("copyright_brand")} — {tFooter("copyright_rights")}.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-xs font-mono font-bold transition-colors" style={{ color: 'rgba(255,255,255,0.25)' }}

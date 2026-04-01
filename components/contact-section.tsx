@@ -2,43 +2,45 @@
 
 import { Mail, Phone, MapPin, Send, MessageCircle, ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { RetroNoise } from "@/components/retro-noise"
 import { CodeBg } from "@/components/code-bg"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, useLangTypography } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 export function ContactSection() {
-  const { t, lang } = useLanguage()
+  const { lang } = useLanguage()
+  const typo = useLangTypography()
+  const t = useTranslations("contact")
 
   const contactInfo = [
     {
       icon: MessageCircle,
       label: "LINE Official",
       value: "@rubkiancode",
-      sub: t("ตอบกลับภายใน 1 ชม.", "Reply within 1 hour"),
+      sub: t("line_sub"),
       href: "https://line.me/ti/p/@rubkiancode",
       highlight: true,
     },
     {
       icon: Phone,
-      label: t("โทรศัพท์", "Phone"),
+      label: t("phone_label"),
       value: "02-XXX-XXXX",
-      sub: t("จันทร์–เสาร์ 9:00–18:00", "Mon–Sat 9:00–18:00"),
+      sub: t("phone_sub"),
       href: "tel:02-XXX-XXXX",
       highlight: false,
     },
     {
       icon: Mail,
-      label: t("อีเมล", "Email"),
+      label: t("email_label"),
       value: "contact@rubkaincode.com",
-      sub: t("ตอบกลับภายใน 24 ชม.", "Reply within 24 hours"),
+      sub: t("email_sub"),
       href: "mailto:contact@rubkaincode.com",
       highlight: false,
     },
     {
       icon: MapPin,
-      label: t("ที่อยู่", "Address"),
-      value: t("กรุงเทพมหานคร", "Bangkok"),
-      sub: t("ให้บริการทั่วประเทศ", "Nationwide service"),
+      label: t("address_label"),
+      value: t("address_value"),
+      sub: t("address_sub"),
       href: "#",
       highlight: false,
     },
@@ -60,7 +62,7 @@ export function ContactSection() {
       />
 
       {/* TV Noise */}
-      <RetroNoise opacity={0.02} className="z-[2]" blendMode="screen" />
+      
 
       {/* Bouncing Code Symbols */}
       <CodeBg opacity={0.75} particleCount={35} className="z-[3]" />
@@ -88,9 +90,9 @@ export function ContactSection() {
             </span>
             <span
               className="text-xs font-black uppercase text-[#1a0e00]"
-              style={{ letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+              style={{ letterSpacing: typo.trackingLabel }}
             >
-              {t("ติดต่อเรา", "Get In Touch")}
+              {t("badge")}
             </span>
           </div>
 
@@ -101,17 +103,17 @@ export function ContactSection() {
               textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
               fontFamily: 'var(--font-prompt), Prompt, sans-serif',
               WebkitTextStroke: '1px #c8900a',
-              letterSpacing: lang === 'th' ? '0.05em' : '0',
+              letterSpacing: typo.trackingSectionH2,
             }}
           >
-            {t("พร้อมให้คุณ", "Ready For")}
+            {t("heading1")}
             <br />
             <span style={{ color: '#93c8cf', textShadow: '5px 5px 0px #2a5a60', WebkitTextStroke: '1px #1a5a60' }}>
-              {t("ติดต่อเราได้เลย", "You To Reach Us")}
+              {t("heading2")}
             </span>
           </h2>
-          <p className="text-lg max-w-xl mx-auto leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}>
-            {t("ทีมงานผู้เชี่ยวชาญพร้อมรับฟังและให้คำแนะนำอย่างตรงจุด", "Our team of experts is ready to listen and provide targeted advice")}
+          <p className="text-lg max-w-xl mx-auto leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: typo.trackingBody }}>
+            {t("description")}
           </p>
         </div>
 
@@ -132,11 +134,11 @@ export function ContactSection() {
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.border = '2px solid #f3f84a'
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #7a5010'
+                    ; (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #7a5010'
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.border = item.highlight ? '2px solid #f3f84a' : '2px solid rgba(255,255,255,0.12)'
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = item.highlight ? '4px 4px 0px #7a5010' : '4px 4px 0px rgba(255,255,255,0.05)'
+                    ; (e.currentTarget as HTMLElement).style.boxShadow = item.highlight ? '4px 4px 0px #7a5010' : '4px 4px 0px rgba(255,255,255,0.05)'
                 }}
               >
                 {/* Icon */}
@@ -180,9 +182,9 @@ export function ContactSection() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-mono font-bold mb-1 uppercase tracking-wider text-[#7a5010]">// {t("ช่องทางแนะนำ", "Recommended Channel")}</div>
-                  <div className="text-[#1a0e00] font-black text-xl uppercase">{t("คุยผ่าน LINE เลย!", "Chat via LINE Now!")}</div>
-                  <div className="text-sm mt-1 font-bold text-[#3d2000]">{t("เร็ว ง่าย ได้คำตอบทันที", "Fast, Easy, Instant Reply")}</div>
+                  <div className="text-xs font-mono font-bold mb-1 uppercase tracking-wider text-[#7a5010]">// {t("cta_channel")}</div>
+                  <div className="text-[#1a0e00] font-black text-xl uppercase">{t("cta_line")}</div>
+                  <div className="text-sm mt-1 font-bold text-[#3d2000]">{t("cta_tagline")}</div>
                 </div>
                 <div
                   className="w-14 h-14 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
@@ -228,24 +230,24 @@ export function ContactSection() {
               <div className="p-8">
                 <h3
                   className="text-2xl font-black uppercase mb-2"
-                  style={{ color: '#f3f84a', textShadow: '3px 3px 0px #7a5010', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                  style={{ color: '#f3f84a', textShadow: '3px 3px 0px #7a5010', letterSpacing: typo.trackingLabel }}
                 >
-                  {t("ส่งข้อความถึงเรา", "Send Us a Message")}
+                  {t("form_title")}
                 </h3>
-                <p className="text-sm mb-8 font-medium" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: lang === 'th' ? '0.02em' : '0' }}>
-                  {t("กรอกข้อมูลด้านล่าง ทีมงานจะติดต่อกลับโดยเร็วที่สุด", "Fill in the details below and our team will get back to you shortly")}
+                <p className="text-sm mb-8 font-medium" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: typo.trackingBody }}>
+                  {t("form_subtitle")}
                 </p>
 
                 <form className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {[
-                      { label: t("ชื่อ-นามสกุล", "Full Name"), placeholder: t("กรอกชื่อของคุณ", "Enter your name"), type: "text" },
-                      { label: t("อีเมล", "Email"), placeholder: "email@example.com", type: "email" },
+                      { label: t("label_name"), placeholder: t("placeholder_name"), type: "text" },
+                      { label: t("label_email"), placeholder: "email@example.com", type: "email" },
                     ].map((field, i) => (
                       <div key={i} className="space-y-2">
                         <label
                           className="block text-xs font-black uppercase"
-                          style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                          style={{ color: '#f3f84a', letterSpacing: typo.trackingLabel }}
                         >
                           {field.label}
                         </label>
@@ -277,12 +279,12 @@ export function ContactSection() {
                   <div className="space-y-2">
                     <label
                       className="block text-xs font-black uppercase"
-                      style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                      style={{ color: '#f3f84a', letterSpacing: typo.trackingLabel }}
                     >
-                      {t("หัวข้อ", "Subject")}
+                      {t("label_subject")}
                     </label>
                     <input
-                      placeholder={t("เช่น สอบถามราคาเช่าระบบ Photobooth", "e.g. Photobooth System Rental Inquiry")}
+                      placeholder={t("placeholder_subject")}
                       className="w-full px-4 py-3.5 text-sm text-white font-medium outline-none transition-all duration-200"
                       style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a', borderRadius: '12px' }}
                       onFocus={e => { e.currentTarget.style.borderColor = '#f3f84a'; e.currentTarget.style.background = 'rgba(243,248,74,0.08)'; e.currentTarget.style.boxShadow = '3px 3px 0 #7a5010' }}
@@ -293,12 +295,12 @@ export function ContactSection() {
                   <div className="space-y-2">
                     <label
                       className="block text-xs font-black uppercase"
-                      style={{ color: '#f3f84a', letterSpacing: lang === 'th' ? '0.07em' : '0.025em' }}
+                      style={{ color: '#f3f84a', letterSpacing: typo.trackingLabel }}
                     >
-                      {t("รายละเอียด", "Details")}
+                      {t("label_details")}
                     </label>
                     <textarea
-                      placeholder={t("อธิบายความต้องการของคุณ...", "Describe your requirements...")}
+                      placeholder={t("placeholder_details")}
                       rows={5}
                       className="w-full px-4 py-3.5 text-sm text-white font-medium outline-none transition-all duration-200 resize-none"
                       style={{ background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(243,248,74,0.3)', caretColor: '#f3f84a', borderRadius: '12px' }}
@@ -316,13 +318,13 @@ export function ContactSection() {
                       border: '3px solid #1a0e00',
                       boxShadow: '5px 5px 0px #7a5010',
                       borderRadius: '999px',
-                      letterSpacing: lang === 'th' ? '0.05em' : '0.025em',
+                      letterSpacing: typo.trackingButton,
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #7a5010' }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #7a5010' }}
                   >
                     <Send className="w-5 h-5" />
-                    {t("ส่งข้อความเลย", "Send Message")}
+                    {t("submit")}
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </form>

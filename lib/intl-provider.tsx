@@ -2,17 +2,36 @@
 
 import { NextIntlClientProvider } from 'next-intl'
 import { useLanguage } from './language-context'
+import type { Lang } from './language-context'
 import thMessages from '@/messages/th.json'
 import enMessages from '@/messages/en.json'
+import loMessages from '@/messages/lo.json'
+import myMessages from '@/messages/my.json'
+import viMessages from '@/messages/vi.json'
+import kmMessages from '@/messages/km.json'
+import msMessages from '@/messages/ms.json'
+import idMessages from '@/messages/id.json'
+import filMessages from '@/messages/fil.json'
+import sgMessages from '@/messages/sg.json'
+import bnMessages from '@/messages/bn.json'
 
-/**
- * DynamicIntlProvider — wraps NextIntlClientProvider and switches
- * message files instantly when the user toggles the language,
- * without any page reload or URL change (client-side only).
- */
+const MESSAGES: Record<Lang, typeof thMessages> = {
+  th:  thMessages,
+  en:  enMessages,
+  lo:  loMessages,
+  my:  myMessages,
+  vi:  viMessages,
+  km:  kmMessages,
+  ms:  msMessages,
+  id:  idMessages,
+  fil: filMessages,
+  sg:  sgMessages,
+  bn:  bnMessages,
+}
+
 export function DynamicIntlProvider({ children }: { children: React.ReactNode }) {
   const { lang } = useLanguage()
-  const messages = lang === 'th' ? thMessages : enMessages
+  const messages = MESSAGES[lang] ?? thMessages
 
   return (
     <NextIntlClientProvider
