@@ -43,7 +43,19 @@
     "web_title": "Website",
     "web_desc": "Thiết kế và phát triển mọi loại website từ Landing Page đến E-commerce",
     "db_title": "Hệ Thống Database",
-    "db_desc": "Thiết kế, phát triển và bảo trì hệ thống cơ sở dữ liệu"
+    "db_desc": "Thiết kế, phát triển và bảo trì hệ thống cơ sở dữ liệu",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Di chuyển dữ liệu",
+    "db_f2": "Sao lưu hệ thống"
   },
   "photobooth": {
     "badge": "Photobooth Phong Cách Hàn",
@@ -69,7 +81,13 @@
     "project1_desc": "Ứng dụng đặt lịch cho phòng khám và cửa hàng",
     "project2_desc": "Nền tảng bán hàng trực tuyến đầy đủ tính năng",
     "project3_desc": "Hệ thống quản lý nhân sự doanh nghiệp",
-    "view_details": "Xem Chi Tiết"
+    "view_details": "Xem Chi Tiết",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "Liên Hệ",
@@ -96,7 +114,9 @@
     "placeholder_subject": "VD: Hỏi giá thuê hệ thống Photobooth",
     "label_details": "Chi Tiết",
     "placeholder_details": "Mô tả yêu cầu của bạn...",
-    "submit": "Gửi Tin Nhắn"
+    "submit": "Gửi Tin Nhắn",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thái Lan",
@@ -106,6 +126,8 @@
     "contact_heading": "Liên Hệ",
     "bangkok": "Bangkok",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "Bảo lưu mọi quyền"
+    "copyright_rights": "Bảo lưu mọi quyền",
+    "privacy_policy": "Chính Sách Bảo Mật",
+    "terms_of_service": "Điều Khoản Dịch Vụ"
   }
 }

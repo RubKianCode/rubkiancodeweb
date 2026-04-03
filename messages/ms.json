@@ -43,7 +43,19 @@
     "web_title": "Laman Web",
     "web_desc": "Reka bentuk dan bangunkan semua jenis laman web",
     "db_title": "Sistem Pangkalan Data",
-    "db_desc": "Reka bentuk, bangun dan selenggara sistem pangkalan data"
+    "db_desc": "Reka bentuk, bangun dan selenggara sistem pangkalan data",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "Photobooth Gaya Korea",
@@ -69,7 +81,13 @@
     "project1_desc": "Aplikasi tempahan giliran untuk klinik dan kedai",
     "project2_desc": "Platform jualan dalam talian lengkap",
     "project3_desc": "Sistem pengurusan HR untuk perusahaan",
-    "view_details": "Lihat Butiran"
+    "view_details": "Lihat Butiran",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "Hubungi Kami",
@@ -96,7 +114,9 @@
     "placeholder_subject": "cth. Pertanyaan Sewa Sistem Photobooth",
     "label_details": "Butiran",
     "placeholder_details": "Huraikan keperluan anda...",
-    "submit": "Hantar Mesej"
+    "submit": "Hantar Mesej",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thailand",
@@ -106,6 +126,8 @@
     "contact_heading": "Hubungi",
     "bangkok": "Bangkok",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "Hak cipta terpelihara"
+    "copyright_rights": "Hak cipta terpelihara",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }

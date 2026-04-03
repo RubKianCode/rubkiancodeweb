@@ -43,7 +43,19 @@
     "web_title": "Website",
     "web_desc": "Idinisenyo at na-develop ang lahat ng uri ng website",
     "db_title": "Database System",
-    "db_desc": "Pagdidisenyo at pagpapanatili ng database system"
+    "db_desc": "Pagdidisenyo at pagpapanatili ng database system",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "Korean Style Photobooth",
@@ -69,7 +81,13 @@
     "project1_desc": "Aplikasyon ng pagpapa-queue para sa klinika",
     "project2_desc": "Kumpletong online na platform ng benta",
     "project3_desc": "Sistema ng HR para sa mga negosyo",
-    "view_details": "Tingnan ang Detalye"
+    "view_details": "Tingnan ang Detalye",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "Makipag-ugnayan",
@@ -96,7 +114,9 @@
     "placeholder_subject": "hal. Pagtatanong tungkol sa Photobooth",
     "label_details": "Mga Detalye",
     "placeholder_details": "Ilarawan ang inyong mga pangangailangan...",
-    "submit": "Ipadala ang Mensahe"
+    "submit": "Ipadala ang Mensahe",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thailand",
@@ -106,6 +126,8 @@
     "contact_heading": "Makipag-ugnayan",
     "bangkok": "Bangkok",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "Lahat ng karapatan ay nakalaan"
+    "copyright_rights": "Lahat ng karapatan ay nakalaan",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }

@@ -14,30 +14,30 @@ export function ShowcaseSection() {
   const projects = [
     {
       title: t("project0_title"),
-      category: "POS System",
+      category: t("project0_category"),
       description: t("project0_desc"),
-      tech: ["React", "Node.js", "PostgreSQL"],
+      tech: t("project0_tech").split(",").map(tag => tag.trim()),
       ch: "CH.1",
     },
     {
       title: t("project1_title"),
-      category: "Mobile App",
+      category: t("project1_category"),
       description: t("project1_desc"),
-      tech: ["Flutter", "Firebase", "Google Maps"],
+      tech: t("project1_tech").split(",").map(tag => tag.trim()),
       ch: "CH.2",
     },
     {
-      title: "E-commerce Platform",
-      category: "Web Application",
+      title: t("project2_title"),
+      category: t("project2_category"),
       description: t("project2_desc"),
-      tech: ["Next.js", "Stripe", "AWS"],
+      tech: t("project2_tech").split(",").map(tag => tag.trim()),
       ch: "CH.3",
     },
     {
-      title: "HR Management System",
-      category: "Enterprise",
+      title: t("project3_title"),
+      category: t("project3_category"),
       description: t("project3_desc"),
-      tech: ["Vue.js", "Laravel", "MySQL"],
+      tech: t("project3_tech").split(",").map(tag => tag.trim()),
       ch: "CH.4",
     },
   ]
@@ -60,7 +60,7 @@ export function ShowcaseSection() {
       <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.28)' }} />
 
       {/* TV Noise */}
-      
+
 
       {/* Bouncing Code Symbols */}
       <CodeBg opacity={0.85} particleCount={40} className="z-[3]" />
@@ -93,8 +93,8 @@ export function ShowcaseSection() {
             className="font-black uppercase mb-6"
             style={{
               fontSize: typo.sectionH2,
-              color: '#1a0e00',
-              textShadow: '4px 4px 0px #7a5010',
+              color: '#f3f84a',
+              textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
               fontFamily: typo.fontFamily,
               letterSpacing: typo.trackingSectionH2,
             }}

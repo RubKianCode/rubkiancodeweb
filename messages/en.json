@@ -39,11 +39,23 @@
     "consult_title": "IT Consulting",
     "consult_desc": "IT Solution consulting, system planning, and technology recommendation",
     "consult_f0": "System Planning",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
     "mobile_desc": "Mobile app development for both iOS and Android using the latest technology",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
     "web_title": "Website",
     "web_desc": "Design and develop all types of websites, from Landing Pages to E-commerce",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
     "db_title": "Database System",
-    "db_desc": "Database design, development, maintenance and backup solutions"
+    "db_desc": "Database design, development, maintenance and backup solutions",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "Korean Style Photobooth",
@@ -64,11 +76,21 @@
     "heading": "Our Portfolio",
     "description": "Sample projects we have developed for our clients",
     "project0_title": "Back-office Management System",
+    "project0_category": "POS System",
     "project0_desc": "Back-office management system and sales reporting",
+    "project0_tech": "React, Node.js, PostgreSQL",
     "project1_title": "Queue Booking App",
+    "project1_category": "Mobile App",
     "project1_desc": "Queue booking application for clinics and shops",
+    "project1_tech": "Flutter, Firebase, Google Maps",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
     "project2_desc": "Full-featured online sales platform",
+    "project2_tech": "Next.js, Stripe, AWS",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise",
     "project3_desc": "Human resource management system for enterprises",
+    "project3_tech": "Vue.js, Laravel, MySQL",
     "view_details": "View Details"
   },
   "contact": {
@@ -76,6 +98,7 @@
     "heading1": "Ready For",
     "heading2": "You To Reach Us",
     "description": "Our team of experts is ready to listen and provide targeted advice",
+    "line_label": "LINE Official",
     "line_sub": "Reply within 1 hour",
     "phone_label": "Phone",
     "phone_sub": "Mon–Sat 9:00–18:00",
@@ -96,7 +119,8 @@
     "placeholder_subject": "e.g. Photobooth System Rental Inquiry",
     "label_details": "Details",
     "placeholder_details": "Describe your requirements...",
-    "submit": "Send Message"
+    "submit": "Send Message",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thailand",
@@ -106,6 +130,8 @@
     "contact_heading": "Contact",
     "bangkok": "Bangkok",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "All rights reserved"
+    "copyright_rights": "All rights reserved",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }

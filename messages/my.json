@@ -43,7 +43,19 @@
     "web_title": "ဝဘ်ဆိုဒ်",
     "web_desc": "Landing Page မှ E-commerce အထိ ဝဘ်ဆိုဒ် ဒီဇိုင်းရေးဆွဲ",
     "db_title": "ဒေတာဘေ့စ် စနစ်",
-    "db_desc": "ဒေတာဘေ့စ် ဒီဇိုင်း ဖန်တီး ထိန်းသိမ်း"
+    "db_desc": "ဒေတာဘေ့စ် ဒီဇိုင်း ဖန်တီး ထိန်းသိမ်း",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "ကိုရီးယား ပုံစံ Photobooth",
@@ -69,7 +81,13 @@
     "project1_desc": "ဆေးခန်း နှင့် ဆိုင်များအတွက် Queue ဘွတ်ကင်",
     "project2_desc": "Online ရောင်းဝယ်ရေး Platform ပြည့်စုံ",
     "project3_desc": "လုပ်ငန်းကြီးများအတွက် HR စီမံ",
-    "view_details": "အသေးစိတ် ကြည့်ရန်"
+    "view_details": "အသေးစိတ် ကြည့်ရန်",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "ဆက်သွယ်ရန်",
@@ -96,7 +114,9 @@
     "placeholder_subject": "ဥပမာ - Photobooth စနစ် ငှားရမ်းနှုန်း မေးမြန်း",
     "label_details": "အသေးစိတ်",
     "placeholder_details": "သင်၏ လိုအပ်ချက် ဖော်ပြပါ...",
-    "submit": "Message ပို့ပါ"
+    "submit": "Message ပို့ပါ",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thailand",
@@ -106,6 +126,8 @@
     "contact_heading": "ဆက်သွယ်",
     "bangkok": "ဘန်ကောက်",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "မူပိုင်ခွင့် သတ်သတ်မှတ်မှတ်"
+    "copyright_rights": "မူပိုင်ခွင့် သတ်သတ်မှတ်မှတ်",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }
