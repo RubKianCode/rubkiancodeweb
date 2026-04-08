@@ -14,7 +14,7 @@ export function ContactSection() {
   const contactInfo = [
     {
       icon: MessageCircle,
-      label: "LINE Official",
+      label: t("line_label"),
       value: "@rubkiancode",
       sub: t("line_sub"),
       href: "https://line.me/ti/p/@rubkiancode",
@@ -222,7 +222,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-mono font-bold text-[#1a0e00]">ONLINE</span>
+                  <span className="text-xs font-mono font-bold text-[#1a0e00]">{t("status_online")}</span>
                 </div>
               </div>
 

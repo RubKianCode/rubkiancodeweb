@@ -52,10 +52,10 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 12px rgba(243,248,74,0.8)' }} />
 
       {/* Corner brackets */}
-      <div className="absolute top-20 left-6 w-10 h-10 border-l-4 border-t-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '-2px -2px 0 #7a5010' }} />
-      <div className="absolute top-20 right-6 w-10 h-10 border-r-4 border-t-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '2px -2px 0 #7a5010' }} />
-      <div className="absolute bottom-4 left-6 w-10 h-10 border-l-4 border-b-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '-2px 2px 0 #7a5010' }} />
-      <div className="absolute bottom-4 right-6 w-10 h-10 border-r-4 border-b-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '2px 2px 0 #7a5010' }} />
+      <div className="absolute top-25 left-6 w-10 h-10 border-l-4 border-t-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '-2px -2px 0 #7a5010' }} />
+      <div className="absolute top-25 right-6 w-10 h-10 border-r-4 border-t-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '2px -2px 0 #7a5010' }} />
+      <div className="absolute bottom-8 left-6 w-10 h-10 border-l-4 border-b-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '-2px 2px 0 #7a5010' }} />
+      <div className="absolute bottom-8 right-6 w-10 h-10 border-r-4 border-b-4 border-[#f3f84a] z-[5]" style={{ boxShadow: '2px 2px 0 #7a5010' }} />
 
       {/* Main Content */}
       <div className="relative z-[6] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">

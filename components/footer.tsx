@@ -154,13 +154,13 @@ export function Footer() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#f3f84a' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}
             >
-              Privacy Policy
+              {tFooter("privacy_policy")}
             </Link>
             <Link href="#" className="text-xs font-mono font-bold transition-colors" style={{ color: 'rgba(255,255,255,0.25)' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#f3f84a' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}
             >
-              Terms of Service
+              {tFooter("terms_of_service")}
             </Link>
           </div>
         </div>

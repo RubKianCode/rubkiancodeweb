@@ -43,7 +43,19 @@
     "web_title": "គេហទំព័រ",
     "web_desc": "រចនា និងអភិវឌ្ឍគេហទំព័រគ្រប់ប្រភេទ",
     "db_title": "ប្រព័ន្ធទិន្នន័យ",
-    "db_desc": "រចនា អភិវឌ្ឍ និងថែទាំប្រព័ន្ធទិន្នន័យ"
+    "db_desc": "រចនា អភិវឌ្ឍ និងថែទាំប្រព័ន្ធទិន្នន័យ",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "Photobooth ស្ទីល​កូរ៉េ",
@@ -69,7 +81,13 @@
     "project1_desc": "ចុះឈ្មោះ Queue សម្រាប់គ្លីនិក",
     "project2_desc": "វេទិកាលក់ Online ពេញ",
     "project3_desc": "ប្រព័ន្ធ HR សម្រាប់អង្គការ",
-    "view_details": "មើលព័ត៌មានលម្អិត"
+    "view_details": "មើលព័ត៌មានលម្អិត",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "ទំនាក់ទំនង",
@@ -96,7 +114,9 @@
     "placeholder_subject": "ឧ. សាកសួរតម្លៃ Photobooth",
     "label_details": "ព័ត៌មានលម្អិត",
     "placeholder_details": "ពិពណ៌នាតម្រូវការ...",
-    "submit": "ផ្ញើសារ"
+    "submit": "ផ្ញើសារ",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth ថៃ",
@@ -106,6 +126,8 @@
     "contact_heading": "ទំនាក់ទំនង",
     "bangkok": "បាងកក",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "រក្សាសិទ្ធិ"
+    "copyright_rights": "រក្សាសិទ្ធិ",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }

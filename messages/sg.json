@@ -43,7 +43,19 @@
     "web_title": "Website",
     "web_desc": "Design and develop all types of websites",
     "db_title": "Database System",
-    "db_desc": "Database design, development, maintenance and backup solutions"
+    "db_desc": "Database design, development, maintenance and backup solutions",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "Korean Style Photobooth",
@@ -69,7 +81,13 @@
     "project1_desc": "Queue booking app for clinics and shops",
     "project2_desc": "Full-featured online sales platform",
     "project3_desc": "HR management system for enterprises",
-    "view_details": "View Details"
+    "view_details": "View Details",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "Get In Touch",
@@ -96,7 +114,9 @@
     "placeholder_subject": "e.g. Photobooth System Enquiry",
     "label_details": "Details",
     "placeholder_details": "Describe your requirements...",
-    "submit": "Send Message"
+    "submit": "Send Message",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "Photobooth Thailand",
@@ -106,6 +126,8 @@
     "contact_heading": "Contact",
     "bangkok": "Bangkok",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "All rights reserved"
+    "copyright_rights": "All rights reserved",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }

@@ -43,7 +43,19 @@
     "web_title": "ເວັບໄຊ",
     "web_desc": "ອອກແບບ ແລະ ພັດທະນາເວັບໄຊທຸກຮູບແບບ",
     "db_title": "ຖານຂໍ້ມູນ",
-    "db_desc": "ອອກແບບ ພັດທະນາ ແລະ ດູແລລະບົບຖານຂໍ້ມູນ"
+    "db_desc": "ອອກແບບ ພັດທະນາ ແລະ ດູແລລະບົບຖານຂໍ້ມູນ",
+    "consult_f1": "Digital Transform",
+    "consult_f2": "IT Consulting",
+    "mobile_title": "Mobile App",
+    "mobile_f0": "iOS App",
+    "mobile_f1": "Android App",
+    "mobile_f2": "Cross-platform",
+    "web_f0": "Corporate Website",
+    "web_f1": "E-commerce",
+    "web_f2": "Landing Page",
+    "db_f0": "Database Design",
+    "db_f1": "Data Migration",
+    "db_f2": "Backup System"
   },
   "photobooth": {
     "badge": "ໂຟໂຕ້ບູດສ໌ໄຕລ໌ເກົາຫຼີ",
@@ -69,7 +81,13 @@
     "project1_desc": "ຈອງຄິວສຳລັບຄລີນິກ ແລະ ຮ້ານຄ້າ",
     "project2_desc": "ແພລດຟອມຂາຍສິນຄ້າອອນລາຍ",
     "project3_desc": "ລະບົບ HR ສຳລັບອົງກ",
-    "view_details": "ເບິ່ງລາຍລະອຽດ"
+    "view_details": "ເບິ່ງລາຍລະອຽດ",
+    "project0_category": "POS System",
+    "project1_category": "Mobile App",
+    "project2_title": "E-commerce Platform",
+    "project2_category": "Web Application",
+    "project3_title": "HR Management System",
+    "project3_category": "Enterprise"
   },
   "contact": {
     "badge": "ຕິດຕໍ່ພວກເຮົາ",
@@ -96,7 +114,9 @@
     "placeholder_subject": "ເຊັ່ນ: ສອບຖາມລາຄາ Photobooth",
     "label_details": "ລາຍລະອຽດ",
     "placeholder_details": "ອະທິບາຍຄວາມຕ້ອງການຂອງທ່ານ...",
-    "submit": "ສົ່ງຂໍ້ຄວາມ"
+    "submit": "ສົ່ງຂໍ້ຄວາມ",
+    "line_label": "LINE Official",
+    "status_online": "ONLINE"
   },
   "footer": {
     "brand": "ໂຟໂຕ້ບູດ ໄທລັນ",
@@ -106,6 +126,8 @@
     "contact_heading": "ຕິດຕໍ່",
     "bangkok": "ກຸງເທບ",
     "copyright_brand": "Photobooth Software Thailand",
-    "copyright_rights": "ສະຫງວນລິຂະສິດ"
+    "copyright_rights": "ສະຫງວນລິຂະສິດ",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
   }
 }
