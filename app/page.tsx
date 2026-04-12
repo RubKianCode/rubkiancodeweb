@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
 import { PhotoboothSection } from "@/components/photobooth-section"
 import { ShowcaseSection } from "@/components/showcase-section"
+import { ContactBannerSection } from "@/components/contact-banner-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
@@ -11,9 +12,10 @@ export default function HomePage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <ServicesSection />
       <ShowcaseSection />
+      <ServicesSection />
       <PhotoboothSection />
+      <ContactBannerSection />
       <ContactSection />
       <Footer />
     </main>

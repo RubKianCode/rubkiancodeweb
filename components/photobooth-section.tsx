@@ -1,10 +1,26 @@
 "use client"
 
-import { Camera, Heart, Sparkles, Star, CheckCircle2, Zap } from "lucide-react"
-import Image from "next/image"
+import { Camera, Heart, Star, CheckCircle2, Zap } from "lucide-react"
 import { CodeBg } from "@/components/code-bg"
 import { useLanguage, useLangTypography } from "@/lib/language-context"
 import { useTranslations } from "next-intl"
+import { PHOTOBOOTH_PREVIEW_PHOTOS } from "@/data/photobooth-preview-photos"
+
+// ─── Color Keys (เปลี่ยนสีได้ที่นี่) ──────────────────────────────────────────
+const PHOTOBOOTH_COLORS = {
+  heart: '#e3000f',              // สีหัวใจ (ปุ่มจองเช่า)
+  heartGlow: 'rgba(227,0,15,0.6)', // สี glow ของหัวใจ
+  zapIcon: '#f3f84a',            // สีไอคอนสายฟ้า
+  zapBg: '#f3f84a',              // สีพื้นหลังวงกลมสายฟ้า
+  zapBgInner: 'rgba(255,255,255,0.25)', // สีวงกลมด้านในสายฟ้า
+  ctaBookText: '#d60000',        // สีข้อความ "จองเช่า PHOTOBOOTH"
+  ctaBookTextShadow: 'rgba(214,0,0,0.35)', // สี glow ข้อความ
+  // ─── คำว่า "พิเศษ" ───────────────────────────────────────────────────
+  specialText: '#f3f84a',        // สี fill ตัวอักษร "พิเศษ"
+  specialStroke: '#d60000',      // สี stroke โดยรอบตัวอักษร
+  specialGlow: 'rgba(214,0,0,0.7)', // สี glow สีแดงเปล่งออก
+} as const
+// ──────────────────────────────────────────────────────────────────────────────
 
 export function PhotoboothSection() {
   const { lang } = useLanguage()
@@ -21,34 +37,14 @@ export function PhotoboothSection() {
   ]
 
   return (
-    <section id="photobooth" className="relative py-24 overflow-hidden retro-scanlines">
+    <section id="photobooth" className="relative py-24 overflow-hidden">
 
-      {/* Base Paper Background */}
-      <Image
-        src="/bg-paper.png"
-        alt="paper background"
-        fill
-        className="object-cover"
-        priority
-        style={{ zIndex: 0 }}
-      />
-
-      {/* Overlays — reduced for code BG */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(147, 200, 207, 0.12)' }} />
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.30)' }} />
-
-      {/* TV Noise */}
-      
+      {/* Solid egg-yolk yellow background */}
+      <div className="absolute inset-0 z-[1]" style={{ background: '#f2efdb' }} />
 
       {/* Bouncing Code Symbols */}
-      <CodeBg opacity={0.8} particleCount={40} className="z-[3]" />
+      <CodeBg opacity={1} particleCount={40} className="z-[3]" />
 
-      {/* Vignette */}
-      <div className="absolute inset-0 z-[4] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(20,8,0,0.45) 100%)' }} />
-
-      {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[6]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -58,7 +54,7 @@ export function PhotoboothSection() {
             {/* Badge */}
             <div
               className="inline-flex items-center gap-3 mb-8 px-5 py-2.5"
-              style={{ background: '#93c8cf', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
+              style={{ background: '#f4e6af', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
@@ -77,25 +73,37 @@ export function PhotoboothSection() {
               className="font-black uppercase mb-6 leading-tight"
               style={{
                 fontSize: typo.sectionH2,
-                color: '#f3f84a',
-                textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
+                color: '#d60000ff',
+                /*textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',*/
                 fontFamily: typo.fontFamily,
-                WebkitTextStroke: '1px #c8900a',
+                /*WebkitTextStroke: '1px #c8900a',*/
                 letterSpacing: typo.trackingSectionH2,
               }}
             >
               {t("heading_rent")}
               <br />
-              <span style={{ color: '#93c8cf', textShadow: '5px 5px 0px #2a5a60', WebkitTextStroke: '1px #1a5a60' }}>Photobooth</span>
+              <span style={{ color: '#d60000ff', WebkitTextStroke: '0px' }}>{t("photobooth_wordmark")}</span>
               <br />
-              <span style={{ color: '#ffffff', textShadow: '4px 4px 0px #3d2000', WebkitTextStroke: '0px transparent' }}>
+              <span style={{ color: '#555856', WebkitTextStroke: '0px transparent' }}>
                 {t("heading_style")}
+              </span>
+              {" "}
+              <span
+                className="badge-special"
+                style={{
+                  color: PHOTOBOOTH_COLORS.specialText,
+                  WebkitTextStroke: `2px ${PHOTOBOOTH_COLORS.specialStroke}`,
+                  fontSize: `calc(${typo.sectionH2} * 0.9)`,
+                  verticalAlign: 'middle',
+                }}
+              >
+                {t("heading_special")}
               </span>
             </h2>
 
             <p
-              className="text-white/80 mb-10 leading-relaxed max-w-lg font-medium"
-              style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
+              className="text-black/50 mb-10 leading-relaxed max-w-lg font-medium"
+              style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, textShadow: '1px 1px 0 rgba(60, 60, 60, 0.8)', letterSpacing: typo.trackingBody }}
             >
               {t("description")}
             </p>
@@ -111,8 +119,8 @@ export function PhotoboothSection() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#1a0e00]" />
                   </div>
                   <span
-                    className="text-white font-bold text-sm"
-                    style={{ textShadow: '1px 1px 0 rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
+                    className="text-black/80 font-bold text-sm"
+                    style={{ letterSpacing: typo.trackingBody }}
                   >
                     {feature}
                   </span>
@@ -121,43 +129,54 @@ export function PhotoboothSection() {
             </ul>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex justify-start">
               <button
-                className="font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
+                className="btn-shimmer flex items-center justify-center font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
                 style={{
-                  padding: typo.sectionBtnPadding,
-                  background: '#f3f84a',
-                  color: '#1a0e00',
+                  padding: '18px 48px',
+                  background: '#f4e6af',
+                  color: '#d60000ff',
                   border: '3px solid #1a0e00',
                   boxShadow: '5px 5px 0px #1a0e00',
                   borderRadius: '999px',
-                  fontSize: typo.sectionBadge,
+                  fontSize: `calc(${typo.sectionBadge} * 1.2)`,
                   letterSpacing: typo.trackingButton,
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
-                onClick={() => window.open('https://line.me/ti/p/@rubkiancode', '_blank')}
+                onClick={() => window.open('https://lin.ee/py7hRoKC', '_blank')}
               >
-                <Heart className="inline mr-2 w-5 h-5" />
-                {t("cta_book")}
-              </button>
-              <button
-                className="font-black uppercase transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px]"
-                style={{
-                  padding: typo.sectionBtnPadding,
-                  background: '#93c8cf',
-                  color: '#1a0e00',
-                  border: '3px solid #1a0e00',
-                  boxShadow: '5px 5px 0px #1a0e00',
-                  borderRadius: '999px',
-                  fontSize: typo.sectionBadge,
-                  letterSpacing: typo.trackingButton,
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '7px 7px 0px #1a0e00' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '5px 5px 0px #1a0e00' }}
-              >
-                <Sparkles className="inline mr-2 w-5 h-5" />
-                {t("cta_sample")}
+                {/* แสงวิ้งวับ — อย่าลบ span นี้ */}
+                <span className="shimmer-light" />
+                {/* Animated heartbeat icon */}
+                <span className="inline-flex items-center mr-2 relative">
+                  {/* Glow layer */}
+                  <Heart
+                    className="absolute w-6 h-6 animate-ping"
+                    style={{ color: PHOTOBOOTH_COLORS.heartGlow, opacity: 0.7 }}
+                  />
+                  {/* Main heart */}
+                  <Heart
+                    className="w-6 h-6 relative"
+                    style={{
+                      color: PHOTOBOOTH_COLORS.heart,
+                      fill: PHOTOBOOTH_COLORS.heart,
+                      filter: `drop-shadow(0 0 6px ${PHOTOBOOTH_COLORS.heartGlow}) drop-shadow(0 0 12px ${PHOTOBOOTH_COLORS.heartGlow})`,
+                      animation: 'heartbeat 0.8s ease-in-out infinite',
+                    }}
+                  />
+                </span>
+                {/* Text with heartbeat animation */}
+                <span
+                  style={{
+                    color: PHOTOBOOTH_COLORS.ctaBookText,
+                    textShadow: `0 0 8px ${PHOTOBOOTH_COLORS.ctaBookTextShadow}`,
+                    animation: 'heartbeat 0.8s ease-in-out infinite',
+                    display: 'inline-block',
+                  }}
+                >
+                  {t("cta_book")}
+                </span>
               </button>
             </div>
           </div>
@@ -175,7 +194,7 @@ export function PhotoboothSection() {
             <div
               className="relative w-[500px] z-10"
               style={{
-                background: 'linear-gradient(145deg, #d4a840 0%, #b8860b 50%, #8b6508 100%)',
+                background: 'linear-gradient(145deg, #dbdcd8 0%, #8a99b1 50%, #8a99b1 100%)',
                 border: '4px solid #1a0e00',
                 boxShadow: '8px 8px 0px #1a0e00, 16px 16px 0px rgba(26,14,0,0.3)',
                 borderRadius: '8px',
@@ -186,7 +205,7 @@ export function PhotoboothSection() {
               <div
                 className="relative overflow-hidden"
                 style={{
-                  background: '#93c8cf',
+                  background: '#cddce9',
                   border: '4px solid #1a0e00',
                   borderRadius: '4px',
                   boxShadow: 'inset 0 0 20px rgba(0,0,0,0.3)',
@@ -211,15 +230,25 @@ export function PhotoboothSection() {
                   <span className="font-mono font-bold text-[10px] text-[#1a0e00]">photobooth.exe</span>
                 </div>
 
-                {/* Photo grid */}
+                {/* Photo grid — แก้รูปได้ที่ data/photobooth-preview-photos.ts */}
                 <div className="grid grid-cols-2 gap-2 p-3">
-                  {[1, 2, 3, 4].map((i) => (
+                  {PHOTOBOOTH_PREVIEW_PHOTOS.map((photo, i) => (
                     <div
                       key={i}
-                      className="aspect-square flex items-center justify-center"
+                      className="aspect-square flex items-center justify-center overflow-hidden"
                       style={{ background: 'rgba(26,14,0,0.2)', border: '2px solid rgba(26,14,0,0.3)' }}
                     >
-                      <Camera className="w-8 h-8" style={{ color: 'rgba(26,14,0,0.25)' }} />
+                      {photo.src ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        // placeholder — แสดงเมื่อยังไม่ได้ใส่รูป
+                        <Camera className="w-8 h-8" style={{ color: 'rgba(26,14,0,0.25)' }} />
+                      )}
                     </div>
                   ))}
                 </div>
@@ -250,20 +279,38 @@ export function PhotoboothSection() {
             <div
               className="absolute -top-5 -right-5 w-16 h-16 flex items-center justify-center z-20 rotate-12 hover:rotate-0 transition-all duration-500"
               style={{
-                background: '#f3f84a',
+                background: '#dbdcd8',
                 border: '3px solid #1a0e00',
                 boxShadow: '4px 4px 0px #1a0e00',
                 borderRadius: '999px',
               }}
             >
-              <Zap className="w-8 h-8 text-[#1a0e00]" />
+              {/* Inner yellow circle background for Zap icon */}
+              <div
+                className="w-10 h-10 flex items-center justify-center"
+                style={{
+                  background: `radial-gradient(circle, ${PHOTOBOOTH_COLORS.zapBg} 60%, ${PHOTOBOOTH_COLORS.zapBgInner} 100%)`,
+                  borderRadius: '999px',
+                  border: '2px solid #1a0e00',
+                  boxShadow: `0 0 8px ${PHOTOBOOTH_COLORS.zapBg}`,
+                }}
+              >
+                <Zap
+                  className="w-5 h-5"
+                  style={{
+                    color: '#1a0e00',
+                    fill: PHOTOBOOTH_COLORS.zapIcon,
+                    stroke: '#1a0e00',
+                    strokeWidth: 2.5,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+
     </section>
   )
 }

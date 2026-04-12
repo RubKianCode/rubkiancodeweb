@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { Code, Cloud, MessageSquare, Smartphone, Globe, Database, CheckCircle2 } from "lucide-react"
 import { CodeBg } from "@/components/code-bg"
 import { useLanguage, useLangTypography } from "@/lib/language-context"
@@ -57,34 +56,14 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="relative py-24 overflow-hidden retro-scanlines">
+    <section id="services" className="relative py-24 overflow-hidden">
 
-      {/* Base Paper Background */}
-      <Image
-        src="/bg-paper.png"
-        alt="paper background"
-        fill
-        className="object-cover"
-        priority
-        style={{ zIndex: 0 }}
-      />
-
-      {/* Warm amber overlays — reduced for code BG visibility */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(200, 144, 10, 0.38)' }} />
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(243, 248, 74, 0.06)' }} />
-
-      {/* TV Noise */}
-      
+      {/* Solid egg-yolk yellow background */}
+      <div className="absolute inset-0 z-[1]" style={{ background: '#f2efdb' }} />
 
       {/* Bouncing Code Symbols */}
-      <CodeBg opacity={0.85} particleCount={45} className="z-[3]" />
+      <CodeBg opacity={1} particleCount={45} className="z-[3]" />
 
-      {/* Vignette */}
-      <div className="absolute inset-0 z-[4] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(20,8,0,0.45) 100%)' }} />
-
-      {/* Section header border */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
 
       <div className="relative z-[6] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -92,7 +71,7 @@ export function ServicesSection() {
         <div className="text-center mb-16">
           <div
             className="inline-flex items-center gap-2 mb-6 px-5 py-2"
-            style={{ background: '#93c8cf', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
+            style={{ background: '#f4e6af', border: '3px solid #1a0e00', boxShadow: '4px 4px 0px #1a0e00', borderRadius: '999px' }}
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <span
@@ -107,10 +86,10 @@ export function ServicesSection() {
             className="font-black uppercase mb-6"
             style={{
               fontSize: typo.sectionH2,
-              color: '#f3f84a',
-              textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',
+              color: '#555856',
+              /*textShadow: '5px 5px 0px #7a5010, 10px 10px 0px rgba(122,80,16,0.3)',*/
               fontFamily: typo.fontFamily,
-              WebkitTextStroke: '1px #c8900a',
+              /*WebkitTextStroke: '1px #c8900a',*/
               letterSpacing: typo.trackingSectionH2,
             }}
           >
@@ -118,7 +97,7 @@ export function ServicesSection() {
           </h2>
           <p
             className="font-bold max-w-2xl mx-auto"
-            style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, textShadow: '1px 1px 0px rgba(0,0,0,0.8)', letterSpacing: typo.trackingBody }}
+            style={{ fontSize: typo.sectionDesc, lineHeight: typo.sectionLineHeight, letterSpacing: typo.trackingBody, color: 'rgba(85, 88, 86, 0.7)' }}
           >
             {t("description")}
           </p>
@@ -131,13 +110,13 @@ export function ServicesSection() {
               key={index}
               className="group relative p-6 transition-all duration-150 cursor-default hover:translate-x-[-2px] hover:translate-y-[-2px]"
               style={{
-                background: 'rgba(26, 14, 0, 0.82)',
-                border: '2px solid #f3f84a',
-                boxShadow: '4px 4px 0px #7a5010',
+                background: '#e5d9b8',
+                border: '2px solid #555856',
+                boxShadow: '4px 4px 0px #555856',
                 borderRadius: '20px',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #7a5010' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #7a5010' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #555856' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #555856' }}
             >
               {/* Tag number top-right */}
               <div className="absolute top-3 right-4 font-mono font-black text-xs"
@@ -149,9 +128,9 @@ export function ServicesSection() {
               <div
                 className="w-12 h-12 flex items-center justify-center mb-5"
                 style={{
-                  background: '#93c8cf',
-                  border: '2px solid #f3f84a',
-                  boxShadow: '3px 3px 0px #7a5010',
+                  background: '#cddce9',
+                  border: '2px solid #555856',
+                  boxShadow: '3px 3px 0px #555856',
                   borderRadius: '14px',
                 }}
               >
@@ -160,12 +139,12 @@ export function ServicesSection() {
 
               <h3
                 className="font-black uppercase mb-2 group-hover:text-[#f3f84a] transition-colors"
-                style={{ fontSize: typo.sectionCardTitle, color: '#f3f84a', textShadow: '2px 2px 0px #7a5010', letterSpacing: typo.trackingLabel }}
+                style={{ fontSize: typo.sectionCardTitle, color: '#555856', letterSpacing: typo.trackingLabel }}
               >
                 {service.title}
               </h3>
               <p
-                className="text-white/70 mb-5 leading-relaxed font-medium"
+                className="text-[#555856] mb-5 leading-relaxed font-medium"
                 style={{ fontSize: typo.sectionCardBody, lineHeight: typo.sectionLineHeight, letterSpacing: typo.trackingBody }}
               >
                 {service.description}
@@ -173,8 +152,8 @@ export function ServicesSection() {
               <ul className="space-y-1.5">
                 {service.features.map((feature, fi) => (
                   <li key={fi} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: '#93c8cf' }} />
-                    <span className="font-mono font-bold text-white/80" style={{ fontSize: typo.sectionCardBody }}>{feature}</span>
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: '#7a5010' }} />
+                    <span className="font-mono font-bold text-black/60" style={{ fontSize: typo.sectionCardBody }}>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -183,8 +162,7 @@ export function ServicesSection() {
         </div>
       </div>
 
-      {/* Bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] z-[5]" style={{ background: '#f3f84a', boxShadow: '0 0 8px rgba(243,248,74,0.6)' }} />
+
     </section>
   )
 }

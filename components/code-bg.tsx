@@ -44,7 +44,7 @@ export function CodeBg({ opacity = 1, particleCount = 55, className = "" }: Code
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    const colors = ["#f3f84a", "#93c8cf", "rgba(255,255,255,0.7)", "#f3f84a", "#93c8cf"]
+    const colors = ["#bbbf41ff", "#709195ff", "rgba(159, 158, 158, 1)", "#f3f84a", "#93c8cf"]
 
     const resize = () => {
       canvas.width = canvas.offsetWidth
@@ -67,7 +67,7 @@ export function CodeBg({ opacity = 1, particleCount = 55, className = "" }: Code
         vy: Math.sin(angle) * speed,
         size: Math.floor(Math.random() * 9) + 9,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.25 + 0.07,
+        alpha: Math.random() * 0.3 + 0.15,
       }
     })
 
