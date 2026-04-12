@@ -15,7 +15,7 @@ import { SHOWCASE_MEDIA, SHOWCASE_CARD_DISPLAY } from "@/data/showcase-media"
 // ─────────────────────────────────────────────
 const PROJECTS: ShowcaseProject[] = [
   { key: "project0", ch: "CH.1", previewColor: "#000000" },
-  { key: "project1", ch: "CH.2", previewColor: "#a8d5a2" },
+  { key: "project1", ch: "CH.2", previewColor: "#000000" },
   { key: "project3", ch: "CH.3", previewColor: "#000000" },
 ]
 
