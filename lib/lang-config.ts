@@ -102,7 +102,7 @@ export const LANG_TYPOGRAPHY: Record<Lang, LangTypographyConfig> = {
     sectionH2: 'clamp(1.875rem, 4vw,    4.5rem)',
     sectionDesc: 'clamp(0.95rem,  1.15vw, 1.1875rem)',
     sectionLineHeight: '1.7',
-    sectionCardTitle: 'clamp(1rem,     1.2vw,  1.3125rem)',
+    sectionCardTitle: 'clamp(1rem, 1.2vw, 1.3125rem)',
     sectionCardBody: 'clamp(0.875rem, 1vw,    1.0rem)',
     sectionBtnPadding: 'clamp(0.7rem, 0.875vw, 0.9375rem) clamp(1.375rem, 1.875vw, 2.125rem)',
 

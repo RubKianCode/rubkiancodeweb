@@ -25,14 +25,14 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
+    { href: "#showcase", label: t("nav_rental") },
     { href: "#services", label: t("nav_software") },
-    { href: "#products", label: t("nav_rental") },
     { href: "#photobooth", label: t("nav_photobooth") },
     { href: "#contact", label: t("nav_contact") },
   ]
 
   const handleLineContact = () => {
-    window.open('https://line.me/ti/p/@rubkiancode', '_blank')
+    window.open('https://lin.ee/py7hRoKC', '_blank')
     setIsMenuOpen(false)
   }
 
@@ -44,7 +44,7 @@ export function Navbar() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50"
-      style={{ background: '#93c8cf', borderBottom: '3px solid #f3f84a', boxShadow: '0 3px 0px #7a5010' }}
+      style={{ background: '#cddce9', borderBottom: '3px solid #8a99b1', boxShadow: '0 3px 0px #7e7f7f' }}
     >
       <div className="absolute top-0 left-0 right-0 h-0.5 pointer-events-none"
         style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent)' }} />
@@ -54,7 +54,7 @@ export function Navbar() {
 
           {/* Brand */}
           <Link href="/" className="flex items-center gap-1 flex-shrink-0">
-            <span className="font-mono text-base font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>【</span>
+            <span className="font-mono text-base font-black" style={{ color: '#7e7f7f' }}>【</span>
             <span
               className="font-black text-sm sm:text-lg uppercase leading-tight max-w-[160px] sm:max-w-none truncate"
               style={{
@@ -65,7 +65,7 @@ export function Navbar() {
             >
               {t("brand")}
             </span>
-            <span className="font-mono text-base font-black" style={{ color: '#f3f84a', textShadow: '2px 2px 0 #7a5010' }}>】</span>
+            <span className="font-mono text-base font-black" style={{ color: '#7e7f7f' }}>】</span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -172,9 +172,9 @@ export function Navbar() {
             {/* CTA Button */}
             <button
               onClick={handleLineContact}
-              className="font-black uppercase px-4 py-2.5 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px] whitespace-nowrap"
+              className="btn-shimmer font-black uppercase px-4 py-2.5 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[1px] active:translate-y-[1px] whitespace-nowrap"
               style={{
-                background: '#f3f84a',
+                background: '#f4e6af',
                 color: '#1a0e00',
                 border: '3px solid #1a0e00',
                 boxShadow: '4px 4px 0px #1a0e00',
@@ -185,6 +185,7 @@ export function Navbar() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0px #1a0e00' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0px #1a0e00' }}
             >
+              <span className="shimmer-light" />
               <MessageCircle className="inline mr-1.5 w-4 h-4" />
               {t("cta")}
             </button>
@@ -282,7 +283,7 @@ export function Navbar() {
             ))}
             <button
               onClick={handleLineContact}
-              className="w-full h-12 text-base font-black uppercase tracking-wider transition-all duration-150 mt-2"
+              className="btn-shimmer w-full h-12 text-base font-black uppercase tracking-wider transition-all duration-150 mt-2"
               style={{
                 background: '#f3f84a',
                 color: '#1a0e00',
@@ -291,6 +292,7 @@ export function Navbar() {
                 borderRadius: '999px',
               }}
             >
+              <span className="shimmer-light" />
               <MessageCircle className="inline mr-2 w-4 h-4" />
               {t("cta")}
             </button>
