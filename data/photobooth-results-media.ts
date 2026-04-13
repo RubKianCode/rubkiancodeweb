@@ -24,23 +24,23 @@
 
 export type PhotoboothResultItem =
   | {
-      type: "video"
-      src: string
-      /** ชื่อที่แสดงบนการ์ด (optional) */
-      label?: string
-      /** คำบรรยายสั้น (optional) */
-      caption?: string
-    }
+    type: "video"
+    src: string
+    /** ชื่อที่แสดงบนการ์ด (optional) */
+    label?: string
+    /** คำบรรยายสั้น (optional) */
+    caption?: string
+  }
   | {
-      type: "image"
-      src: string
-      /** ระยะเวลาแสดงรูป (ms) ก่อนเลื่อนไปอันถัดไป — default 5000 */
-      duration?: number
-      /** ชื่อที่แสดงบนการ์ด (optional) */
-      label?: string
-      /** คำบรรยายสั้น (optional) */
-      caption?: string
-    }
+    type: "image"
+    src: string
+    /** ระยะเวลาแสดงรูป (ms) ก่อนเลื่อนไปอันถัดไป — default 5000 */
+    duration?: number
+    /** ชื่อที่แสดงบนการ์ด (optional) */
+    label?: string
+    /** คำบรรยายสั้น (optional) */
+    caption?: string
+  }
 
 /**
  * ─── เพิ่ม / ลบ สื่อผลงานได้ที่นี่ ─────────────────────────────────────────

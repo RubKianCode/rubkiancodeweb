@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, useCallback } from "react"
+import { useEffect, useRef, useState, useCallback, memo } from "react"
 import { ChevronLeft, ChevronRight, Camera, ImageIcon } from "lucide-react"
 import { CodeBg } from "@/components/code-bg"
 import { PHOTOBOOTH_RESULTS } from "@/data/photobooth-results-media"
@@ -176,6 +176,13 @@ export function PhotoboothResultsSection() {
                 ? containerW / 2 + d * SLOT - CARD_W / 2
                 : -9999  // hide before first measurement
 
+              // ── GPU-accelerated positioning via translateX (no layout repaint) ──
+              // leftPos is used as the baseline; we shift with transform instead.
+              // Center of the container is containerW/2; card center should be at leftPos + CARD_W/2.
+              // So translateX offset = leftPos - (containerW/2 - CARD_W/2) = d × SLOT
+              const translateX = containerW > 0 ? d * SLOT : -9999
+              const scaleVal   = isActive ? 1 : isVisible ? 0.56 : 0.4
+
               return (
                 <div
                   key={i}   /* stable key = no remount, only CSS transitions */
@@ -189,19 +196,23 @@ export function PhotoboothResultsSection() {
                   style={{
                     position: "absolute",
                     top: 28,
-                    left: leftPos,
+                    // Center all cards at container midpoint; translateX handles offsets.
+                    // Using left=50% + marginLeft=-CARD_W/2 so transform-origin is card center.
+                    left: "50%",
+                    marginLeft: -CARD_W / 2,
                     width: CARD_W,
+                    willChange: "transform, opacity",
                     // Transition strategy:
-                    //  - usePositionTransition → animate BOTH position AND visuals
+                    //  - usePositionTransition → animate BOTH position AND visuals via transform
                     //  - instant (dot jump)    → no transition at all
-                    //  - otherwise             → only animate visuals (fade/scale), not position
+                    //  - otherwise             → only animate visuals (scale/opacity/filter)
                     transition: instant
                       ? "none"
                       : usePositionTransition
-                        ? `left ${TRANSITION_MS}ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.48s ease, transform 0.48s ease, filter 0.48s ease`
-                        : "opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease",
+                        ? `transform ${TRANSITION_MS}ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.48s ease, filter 0.48s ease`
+                        : "transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease",
                     opacity:   isActive ? 1 : isVisible ? 0.28 : 0,
-                    transform: `scale(${isActive ? 1 : isVisible ? 0.56 : 0.4})`,
+                    transform: `translateX(${translateX}px) scale(${scaleVal})`,
                     filter:    isActive ? "none" : isVisible ? "blur(2.5px)" : "blur(5px)",
                     zIndex:    isActive ? 20 : 10,
                     cursor:    isLeft || isRight ? "pointer" : "default",
@@ -281,8 +292,9 @@ export function PhotoboothResultsSection() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  PhotoboothCard (pure presentation, width inherited from parent)
+//  Wrapped in React.memo — re-renders only when its own props change.
 // ─────────────────────────────────────────────────────────────────────────────
-function PhotoboothCard({
+const PhotoboothCard = memo(function PhotoboothCard({
   item,
   isActive,
   videoRef,
@@ -331,6 +343,7 @@ function PhotoboothCard({
                 muted
                 playsInline
                 autoPlay={isActive}
+                preload="metadata"
                 onEnded={onEnded}
                 style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               />
@@ -385,4 +398,4 @@ function PhotoboothCard({
       </div>
     </div>
   )
-}
+})
