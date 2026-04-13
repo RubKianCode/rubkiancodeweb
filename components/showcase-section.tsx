@@ -164,6 +164,7 @@ function CardThumbnail({ project }: { project: ShowcaseProject }) {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full"
           style={{ objectFit: "contain", transform: "scale(1.8)" }}
         />
