@@ -501,15 +501,17 @@ export const SERVICES: Service[] = [
     //   1. Filter & Beauty (#filter-beauty)
     //   2. Display & Performance (#performance)
     //   3. Realtime Dashboard (#realtime-dashboard)
-    //   4. Signage Photobooth deep dive (#signage) — Photo Signature + Custom Frame
-    //   5. Print + Cloud (#print-cloud)
-    //   6. Payment Channel (#payment-channel)
-    //   7. T+2 Settlement (#payment-settlement)
-    //   8-9. คุณสมบัติทั่วไป (ตู้ · Support) — ไม่ผูก section
+    //   4. LIVEVIEW Capture (#liveview-capture) — บันทึกวิดีโอเฟรมสไตล์เกาหลี
+    //   5. Signage Photobooth deep dive (#signage) — Photo Signature + Custom Frame
+    //   6. Print + Cloud (#print-cloud)
+    //   7. Payment Channel (#payment-channel)
+    //   8. T+2 Settlement (#payment-settlement)
+    //   9-10. คุณสมบัติทั่วไป (ตู้ · Support) — ไม่ผูก section
     features: [
       "AI Filter & Auto Beauty Retouch",                       // → #filter-beauty
       "Live Preview เนียน · GPU Acceleration",                  // → #performance
       "Realtime Photo Gallery & Live Wall",                    // → #realtime-dashboard
+      "LIVEVIEW Capture · บันทึกวิดีโอเฟรมสไตล์เกาหลี",            // → #liveview-capture
       "Photo Signature · เซ็นชื่อ/เขียนข้อความสดบนรูป",          // → #signage
       "Custom Frame · ตามธีม Brand ลูกค้า",                    // → #signage
       "Print + QR Cloud Share ทันที",                            // → #print-cloud
@@ -525,14 +527,15 @@ export const SERVICES: Service[] = [
       0: "#filter-beauty",        // AI Filter & Auto Beauty Retouch
       1: "#performance",          // Live Preview เนียน · GPU Acceleration
       2: "#realtime-dashboard",   // Realtime Photo Gallery & Live Wall
-      3: "#signage",              // Photo Signature
-      4: "#signage",              // Custom Frame (same Signage deep dive)
-      5: "#print-cloud",          // Print + QR Cloud Share
-      6: "#payment-channel",      // Payment Channel
-      7: "#payment-settlement",   // T+2 Settlement
-      8: "#partner-booths",       // ตัวอย่างโปรแกรมในตู้ของ Partner
-      9: "#partner-program",      // ร่วมเป็น Partner
-      // 10–11: ไม่มี link
+      3: "#liveview-capture",     // LIVEVIEW Capture · บันทึกวิดีโอเฟรมสไตล์เกาหลี
+      4: "#signage",              // Photo Signature
+      5: "#signage",              // Custom Frame (same Signage deep dive)
+      6: "#print-cloud",          // Print + QR Cloud Share
+      7: "#payment-channel",      // Payment Channel
+      8: "#payment-settlement",   // T+2 Settlement
+      9: "#partner-booths",       // ตัวอย่างโปรแกรมในตู้ของ Partner
+      10: "#partner-program",     // ร่วมเป็น Partner
+      // 11–12: ไม่มี link
     },
     duration: "ให้เช่ารายปี· เริ่ม 1 ปี",
     postSupport: "ตลอดอายุสัญญา ( Online Service )",
@@ -540,9 +543,9 @@ export const SERVICES: Service[] = [
     accent: "#2ECC71",
     featured: true,
     meta: {
-      title: "ระบบ Photobooth — ตู้ถ่ายรูปสไตล์เกาหลี + Photobooth Software | RubKianCode",
+      title: "ระบบ Photobooth — ตู้ถ่ายรูปสไตล์เกาหลี + LIVEVIEW Capture | RubKianCode",
       description:
-        "ระบบ Photobooth Software ครบวงจรสำหรับงานอีเวนต์ในไทย — ตู้ถ่ายรูปสไตล์เกาหลี (Korean-style Booth), AI Filter, Auto Beauty Retouch, Custom Frame ตามแบรนด์, Print + QR Cloud Share, Realtime Photo Gallery รับผลิต ให้เช่า มีทีม operator มืออาชีพ รองรับงานแต่งงาน เปิดตัวสินค้า Corporate Event",
+        "ระบบ Photobooth Software ครบวงจร — ตู้ถ่ายรูปสไตล์เกาหลี (Korean-style Booth) พร้อม LIVEVIEW Capture บันทึกวิดีโอเฟรมเรียลไทม์, AI Filter, Auto Beauty Retouch, Custom Frame ตามแบรนด์, Print + QR Cloud Share และ Realtime Photo Gallery รับผลิต ให้เช่ารายปี ทีม operator มืออาชีพ รองรับงานแต่งงาน เปิดตัวสินค้า Corporate Event",
     },
     art: <PhotoboothArt />,
     // homepage card preview — เล่น live1.mp4 → live2 → ... → live11 วนกลับ
@@ -729,7 +732,56 @@ export const SERVICES: Service[] = [
       }),
     ],
     keyFeatures: [
-      // ── Deep dive 1: Signage Photobooth ──
+      // ── Deep dive 1: LIVEVIEW Capture ──
+      // โชว์ video sequence จาก /public/videos/liveview/ — live1.mp4 → live11.mp4
+      // imageAspect: "phone" → clean 9:16 portrait frame ไม่มี window chrome
+      //
+      // Mobile UX:
+      //   - description แบ่ง 3 paragraph สั้น ๆ (\n\n) → อ่านง่ายบนจอเล็ก ไม่เจอ wall-of-text
+      //   - benefit titles สั้น 1-3 คำ → render บนการ์ดเล็กไม่ตัด
+      //   - benefit descriptions ≤ 80 ตัวอักษร → ไม่ wrap หลายบรรทัดบนมือถือ
+      //
+      // SEO:
+      //   - alt text รวม keyword ภาษาไทย + อังกฤษ (longtail "ตู้ถ่ายรูปเกาหลี", "Korean photobooth")
+      //   - caption เน้น keyword หลัก "LIVEVIEW Capture · ตู้ถ่ายรูปสไตล์เกาหลี"
+      //   - benefit titles ใช้คำเฉพาะ search ("Boomerang", "Slow-motion", "Burst") ที่ user หา
+      {
+        slug: "liveview-capture",
+        eyebrow: "★ DEEP DIVE · LIVEVIEW CAPTURE",
+        title: "LIVEVIEW Capture",
+        highlightedTitle: "เก็บทุกโมเมนต์สำคัญ",
+        description:
+          "ด้วยระบบ LIVEVIEW Capture บันทึก วิดีโอเฟรม สุดคิ้ว สไตล์เกาหลี — กล้องจับภาพต่อเนื่องแบบ Realtime ผู้ร่วมงานเห็นตัวเองบนจอตู้ถ่ายรูปก่อนกดถ่ายจริง\n\nรองรับครบทุกโหมด — ภาพนิ่ง, Burst Frame, Boomerang, Slow-motion และ Reels Video ทำคอนเทนต์ลง TikTok, Instagram Reels และ Facebook Story ได้ทันที\n\nเหมาะกับตู้ถ่ายรูปงานแต่งงาน, งานเปิดตัวสินค้า, Brand Activation และ Selfie Studio สไตล์เกาหลีในห้าง — รองรับทั้ง Korean Photobooth, Mirror Booth และ Reel Booth",
+        image: {
+          src: "/images/photobooth/photo4.jpg",
+          alt: "LIVEVIEW Capture · ตู้ถ่ายรูปสไตล์เกาหลีของ RubKianCode — ระบบ Korean Photobooth บันทึกวิดีโอเฟรม Realtime, รองรับ Burst Frame, Boomerang, Slow-motion และ Reels Video สำหรับลง TikTok, Instagram Reels เหมาะกับงานแต่งงาน, เปิดตัวสินค้า, Brand Activation, Mirror Booth และ Selfie Studio สไตล์เกาหลี",
+          caption: "LIVEVIEW Capture · ตู้ถ่ายรูปสไตล์เกาหลี · Reels Ready",
+        },
+        // วิดีโอ live1.mp4 → live11.mp4 (11 clips) เล่นต่อกันวนกลับ
+        // VideoLoopPreview ใช้ preload="metadata" + muted + playsInline → ประหยัด mobile data + เล่นใน iOS ได้
+        video: Array.from({ length: 11 }, (_, i) => `/videos/liveview/live${i + 1}.mp4`),
+        imageAspect: "phone",
+        benefits: [
+          {
+            title: "Live Preview Realtime",
+            description: "เห็นตัวเองบนจอก่อนถ่าย ปรับมุม-โพสได้ทันใจ ไม่ต้องเดาผลลัพธ์",
+          },
+          {
+            title: "Burst Frame · 4K",
+            description: "บันทึกหลายเฟรมในวินาทีเดียว ระบบคัดภาพที่สวยที่สุดให้อัตโนมัติ",
+          },
+          {
+            title: "Boomerang & Slow-mo",
+            description: "วิดีโอสั้นสไตล์เกาหลี ลง Reels, TikTok, Instagram Story ได้เลย",
+          },
+          {
+            title: "Cloud Auto-save",
+            description: "ทุกเฟรมเก็บใน Cloud Gallery ดาวน์โหลดได้ครบ ทั้ง raw และ final",
+          },
+        ],
+      },
+
+      // ── Deep dive 2: Signage Photobooth ──
       {
         slug: "signage",
         eyebrow: "★ DEEP DIVE · SIGNAGE PHOTOBOOTH",
@@ -767,7 +819,7 @@ export const SERVICES: Service[] = [
         ],
       },
 
-      // ── Deep dive 2: Custom Branding ──
+      // ── Deep dive 3: Custom Branding ──
       {
         eyebrow: "★ DEEP DIVE · BRAND CUSTOMIZATION",
         title: "Custom Frame & Branding",
@@ -799,7 +851,7 @@ export const SERVICES: Service[] = [
         ],
       },
 
-      // ── Deep dive 3: Print + Cloud Share ──
+      // ── Deep dive 4: Print + Cloud Share ──
       // ใช้ media จาก /public/images/productlivew/ — example clip sequence + image fallback
       {
         slug: "print-cloud",
@@ -850,7 +902,7 @@ export const SERVICES: Service[] = [
         ],
       },
 
-      // ── Deep dive 4: Payment Channel ──
+      // ── Deep dive 5: Payment Channel ──
       {
         slug: "payment-channel",
         eyebrow: "★ DEEP DIVE · PAYMENT CHANNEL",
